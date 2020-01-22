@@ -1,0 +1,24 @@
+:root{
+    /*COLORS*/
+    --color-primary:#00bfff;
+    --color-primary-light:#80dfff;
+    --color-primary-dark:#0099cc;
+
+    --color-secondary-light:#33ffbb;
+    --color-secondary-dark:#00b377;
+
+    /*TEXT COLORS*/
+    --color-white:#ffff;
+    --color-black:#000;
+    --color-grey-light:#999;
+    --color-grey-dark:#777777;
+    --color-grey-dark-2:#333;
+
+    /*HEADER*/
+    --header-color: #ffb900;
+    --header-color-secondary: #ff7730;
+    --header-color-tertiary:#602060;
+}
+
+
+
