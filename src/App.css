@@ -139,6 +139,7 @@ h2 {
 .screenshot {
   width: 100%;
   max-width: 200px;
+  max-height: 300px;
 }
 
 @media screen and (max-width: 1200px) {

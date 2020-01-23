@@ -22,7 +22,6 @@ class Game extends React.Component {
   setContainerAlign(val) {
     let container = document.getElementById("container");
     if (container) {
-      console.log(container);
       container.setAttribute("style", "align-items:" + val);
     }
   }

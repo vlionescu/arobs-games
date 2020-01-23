@@ -1,6 +1,7 @@
 import React from "react";
 import Requests from "./Requests";
 import Auth from "./Authentication";
+import ReactImageFallback from "react-image-fallback";
 
 const getNpiecesOfWord = (str, pieces) => {
   let overview = "";
@@ -24,7 +25,6 @@ class GameList extends React.Component {
     };
     this.gamesInGrid = this.gamesInGrid.bind(this);
     this.onClickHandle = this.onClickHandle.bind(this);
-    this.checkFileIsExists = this.checkFileIsExists.bind(this);
   }
 
   async componentDidMount() {
@@ -37,23 +37,9 @@ class GameList extends React.Component {
     }
   };
 
-  checkFileIsExists = url => {
-    return fetch(url)
-      .then(response => {
-        return response.ok;
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  };
-
   gamesInGrid = () => {
     const list = this.state.games.map(game => {
-      let imgsrc = this.checkFileIsExists(
-        "http://localhost:8080/" + game.imageUrl
-      )
-        ? "http://localhost:8080/" + game.imageUrl
-        : "./no-image.png";
+      let imgsrc = "http://localhost:8080/" + game.imageUrl;
 
       return (
         <div
@@ -61,11 +47,13 @@ class GameList extends React.Component {
           onClick={() => this.onClickHandle(game.id)}
           key={game.id}
         >
-          <img
+          <ReactImageFallback
             className="screenshot"
             src={imgsrc}
             alt={game.name ? game.name : "No Title"}
-          ></img>
+            fallbackImage="./no-image.png"
+            initialImage="loader.gif"
+          />
           <div className="description">
             <p className="gamename">{game.name ? game.name : "No Title"}</p>
             <p className="descriptionfield">
