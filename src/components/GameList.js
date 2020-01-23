@@ -37,20 +37,25 @@ class GameList extends React.Component {
     }
   };
 
-  checkFileIsExists = filename => {
-    try {
-      require("../../public/games/" + filename + "/screenshot.png");
-      return true;
-    } catch {
-      return null;
-    }
+  checkFileIsExists = url => {
+    return fetch(url)
+      .then(response => {
+        return response.ok;
+      })
+      .catch(error => {
+        console.log(error);
+      });
   };
 
   gamesInGrid = () => {
     const list = this.state.games.map(game => {
-      let imgsrc = this.checkFileIsExists(game.name)
-        ? "./games/" + game.name + "/screenshot.png"
+      let imgsrc = this.checkFileIsExists(
+        "http://localhost:8080/" + game.imageUrl
+      )
+        ? "http://localhost:8080/" + game.imageUrl
         : "./no-image.png";
+
+      console.log(imgsrc);
       return (
         <div
           className="gamecomponent"
