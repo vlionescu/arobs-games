@@ -27,6 +27,18 @@ header {
   margin-bottom: 2em;
 }
 
+.headerLink {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.logo {
+  width: 5em;
+  height: 5em;
+  padding-top: 3em;
+}
+
 header a:link {
   color: white;
 }
@@ -99,9 +111,9 @@ header h1 {
   color: white;
 }
 
-h2{
+h2 {
   color: white;
-  font-size:2em;
+  font-size: 2em;
 }
 
 .gamecomponent {
@@ -138,6 +150,17 @@ h2{
 @media screen and (max-width: 850px) {
   .gameList {
     grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  header h1 {
+    font-size: 3em;
+  }
+  .logo {
+    height: 3.5em;
+    width: 3.5em;
+    padding-top: 2em;
   }
 }
 

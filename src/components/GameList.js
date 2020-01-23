@@ -55,7 +55,6 @@ class GameList extends React.Component {
         ? "http://localhost:8080/" + game.imageUrl
         : "./no-image.png";
 
-      console.log(imgsrc);
       return (
         <div
           className="gamecomponent"

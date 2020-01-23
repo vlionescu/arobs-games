@@ -55,11 +55,14 @@ const Header = props => {
 
   return (
     <header>
-      <h1>
-        <Link to="/">{props.text}</Link>
-      </h1>
+      <Link className="headerLink" to="/">
+        <img className="logo" src={"./arobs_logo.png"} alt="AROBS logo"></img>
+        <div className="titleclass">
+          <h1>{props.text}</h1>
+        </div>
+      </Link>
       <div className="navbar">
-          {localStorage.token ? userLink : loginRegLink}
+        {localStorage.token ? userLink : loginRegLink}
       </div>
     </header>
   );
