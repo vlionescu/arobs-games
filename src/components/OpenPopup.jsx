@@ -21,7 +21,7 @@ class OpenPopup extends Component {
             <div className="App">
                 <button onClick={this.togglePopup.bind(this)}>show popup</button>
                 {this.state.showPopup ?
-                    <Popup closePopup={this.togglePopup.bind(this) }/>
+                    <Popup score='89' closePopup={this.togglePopup.bind(this) }/>
                     :null
                 }
             </div>

@@ -19,7 +19,7 @@ class Popup extends Component{
                     <img id="close_btn" src={require("../images/close_btn.png")}  alt="close button" onClick={this.props.closePopup}/>
                 </div>
                     <div id="score_section">
-                    <span id="score_txt">Your Score: </span>  <span id="score">89 </span>
+                    <span id="score_txt">Your Score: </span>  <span id="score">{this.props.score}</span>
                 </div>
                 {/*<div id="message">*/}
                     {/*<h3>Congratulation you are in the first</h3> <h3> 20%</h3>*/}
