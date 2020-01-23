@@ -1,26 +1,25 @@
 import React from 'react';
-import logo from './logo.svg';
 import Navbar from "./components/navbar";
 import './App.css';
 import {Route, BrowserRouter, Switch} from "react-router-dom";
 
 
-function About() {
+function Games() {
     return (
         <div>
             <Navbar>
             </Navbar>
-            <h2>About</h2>
+            {/*TO DO*/}
         </div>
     );
 }
 
-function Dashboard() {
+function Scores() {
     return (
         <div>
             <Navbar>
             </Navbar>
-            <h2>Dashboard</h2>
+            {/*TO DO*/}
         </div>
     );
 }
@@ -28,13 +27,12 @@ function Dashboard() {
 function App() {
   return (
         <BrowserRouter>
-
         <Switch>
             <Route path="/">
-                <About />
+                <Games />
             </Route>
             <Route path="/scores">
-                <Dashboard />
+                <Scores />
             </Route>
         </Switch>
       </BrowserRouter>
