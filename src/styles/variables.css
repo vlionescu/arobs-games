@@ -4,8 +4,8 @@
     --color-primary-light:#80dfff;
     --color-primary-dark:#0099cc;
 
-    --color-secondary-light:#33ffbb;
-    --color-secondary-dark:#00b377;
+    --color-secondary-light:#4dff4d;
+    --color-secondary-dark:#00cc00;
 
     /*TEXT COLORS*/
     --color-white:#ffff;
@@ -18,6 +18,15 @@
     --header-color: #ffb900;
     --header-color-secondary: #ff7730;
     --header-color-tertiary:#602060;
+
+    /*FONTS*/
+    --h1-primary-font: "Press Start 2P", cursive;
+    --h3-primary-font: "Jockey One", sans-serif;
+
+    --font-primary-weight: 400;
+    --font-primary-size: 30px;
+
+    --font-secondary-size: 16px;
 }
 
 
