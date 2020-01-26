@@ -33,7 +33,7 @@ class GameList extends React.Component {
   }
 
   onClickHandle = id => {
-    this.props.history.push("/games/" + id);
+    // this.props.history.push("/games/" + id);
   };
 
   gamesInGrid = () => {
