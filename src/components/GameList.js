@@ -1,7 +1,8 @@
 import React from "react";
 import Requests from "./Requests";
-import Auth from "./Authentication";
 import ReactImageFallback from "react-image-fallback";
+
+import "../App.css";
 
 const getNpiecesOfWord = (str, pieces) => {
   let overview = "";
@@ -32,9 +33,7 @@ class GameList extends React.Component {
   }
 
   onClickHandle = id => {
-    if (Auth.requireAuth(this.props)) {
-      this.props.history.push("/games/" + id);
-    }
+    this.props.history.push("/games/" + id);
   };
 
   gamesInGrid = () => {
@@ -70,7 +69,7 @@ class GameList extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="container">
         <h2>Games</h2>
         <div className="gameList">{this.gamesInGrid()}</div>
       </div>
