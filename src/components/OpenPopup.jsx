@@ -19,9 +19,9 @@ class OpenPopup extends Component {
     render() {
         return (
             <div className="App">
-                <button onClick={this.togglePopup}>show popup</button>
+                <button onClick={this.togglePopup.bind(this)}>show popup</button>
                 {this.state.showPopup ?
-                    <Popup score='89' closePopup={this.togglePopup }/>
+                    <Popup score='89' closePopup={this.togglePopup.bind(this) }/>
                     :null
                 }
             </div>
