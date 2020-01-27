@@ -24,8 +24,6 @@ class GameList extends React.Component {
     this.state = {
       games: []
     };
-    this.gamesInGrid = this.gamesInGrid.bind(this);
-    this.onClickHandle = this.onClickHandle.bind(this);
   }
 
   async componentDidMount() {
