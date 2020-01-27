@@ -9,7 +9,7 @@ function Games() {
         <div>
             <Navbar>
             </Navbar>
-            {/*TO DO*/}
+            {/*to do page*/}
         </div>
     );
 }
@@ -19,7 +19,7 @@ function Scores() {
         <div>
             <Navbar>
             </Navbar>
-            {/*TO DO*/}
+            {/*to do page*/}
         </div>
     );
 }
