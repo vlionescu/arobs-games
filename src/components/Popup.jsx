@@ -7,7 +7,7 @@ class Popup extends Component{
     }
 
     handleClick(){
-        //todo call la server cu datele
+        //todo send to server the submit information
     }
 
 
