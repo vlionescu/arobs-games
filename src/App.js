@@ -7,8 +7,6 @@ import {Route, BrowserRouter, Switch} from "react-router-dom";
 function Games() {
     return (
         <div>
-            <Navbar>
-            </Navbar>
             {/*to do page*/}
         </div>
     );
@@ -17,8 +15,6 @@ function Games() {
 function Scores() {
     return (
         <div>
-            <Navbar>
-            </Navbar>
             {/*to do page*/}
         </div>
     );
@@ -35,6 +31,7 @@ function App() {
                 <Scores />
             </Route>
         </Switch>
+            <Navbar></Navbar>
       </BrowserRouter>
   );
 }
