@@ -36,7 +36,7 @@ class GameList extends React.Component {
 
   gamesInGrid = () => {
     const list = this.state.games.map(game => {
-      let imgsrc = "http://localhost:8080/" + game.imageUrl;
+      let imgsrc = "https://arobs-games-server.herokuapp.com/" + game.imageUrl;
 
       return (
         <div
