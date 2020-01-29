@@ -1,0 +1,139 @@
+@import url("https://fonts.googleapis.com/css?family=Bubblegum+Sans&display=swap");
+
+/*main div */
+.popup_div{
+    background-color:
+            /*rgba(128,223,255 , 0.9);*/
+            #fff1df;
+    width: 35%;
+    /*height: 30%;*/
+    /*margin: 0 auto;*/
+    border: 2px solid #fff;
+    border-radius: 20px;
+    background-clip: padding-box;
+    display: flex;
+    flex-direction: column;
+    z-index: 9;
+    position: fixed;
+    left: 31%;
+    top: 10%;
+    font-family: 'Bubblegum Sans', cursive;
+
+}
+
+
+/*a div that contains the close button and the victory*/
+#top{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+#victory_txt{
+    width: 260px;
+    margin: 0 auto;
+    position: relative;
+    top: -30px;
+
+}
+#close_btn{
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+/*submit button */
+#submit{
+    margin: 0 auto 5px;
+    padding: 5px 19px;
+    background-color: rgba(255,65,65,1);
+    border: 2px solid rgba(255,255,255,0);
+    border-radius: 15px;
+    box-sizing: border-box;
+    color:#FFFFFF;
+    text-shadow:  0 01px 1px rgba(0,0,0,0.35);
+    text-align:center;
+    cursor: pointer;
+    transition: all 0.2s;
+
+
+}
+#submit:hover{
+border-color: rgba(255,255,255,1);
+}
+
+
+#score_section{
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+    font-size: 30px;
+}
+
+
+#score{
+    margin-left: 20px;
+}
+
+/*#message{*/
+/*    display: flex;*/
+/*    margin: 0 auto;*/
+/*}*/
+
+
+
+/*add name input and text*/
+#add_name{
+    display: flex;
+    margin: 3% auto;
+    font-size: 20px;
+}
+
+#name_input{
+    border: none;
+    background: transparent;
+    border-bottom: 1px solid #000000;
+    padding : 0 5px;
+    margin-left  : 10px;
+    width   : 30%;
+    background : none;
+}
+
+@media screen and  (max-width: 1200px) {
+
+
+    #victory_txt {
+        width: 230px;
+    }
+    .popup_div{
+        width: 46%;
+        left: 25%;
+    }
+}
+@media screen and  (max-width: 690px) {
+
+    .popup_div{
+        width: 60%;
+        left: 20%;
+    }
+    #victory_txt {
+        width: 176px;
+        top: -23px;
+    }
+    #close_btn{
+        width: 20px;
+        height: 20px;
+    }
+
+}
+@media screen and  (max-width: 576px) {
+
+    #victory_txt {
+        width: 176px;
+        top: -23px;
+    }
+    #close_btn{
+        width: 20px;
+        height: 20px;
+    }
+
+}

@@ -3,6 +3,7 @@ import Requests from "./Requests";
 import ReactImageFallback from "react-image-fallback";
 
 import "../App.css";
+import OpenPopup from "./OpenPopup";
 
 const getNpiecesOfWord = (str, pieces) => {
   let overview = "";
