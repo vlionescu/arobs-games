@@ -1,6 +1,9 @@
 import React from 'react';
+import Navbar from "./components/navbar";
+import './header.css';
+
+import logo from './logo.svg';
 import './App.css';
-import LinksComponent from "./LinksComponent";
 import RoutesComponent from './RoutesComponent';
 import {BrowserRouter as Router} from 'react-router-dom';
 import './styles/style.css';
@@ -9,9 +12,11 @@ function App() {
   return (
       <Router>
         <RoutesComponent/>
-        <LinksComponent/>
+          <Navbar></Navbar>
       </Router>
+
   );
 }
+
 
 export default App;
