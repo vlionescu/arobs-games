@@ -1,9 +1,10 @@
 @import url("https://fonts.googleapis.com/css?family=Bubblegum+Sans&display=swap");
 
-
 /*main div */
 .popup_div{
-    background-color: #fff1df;
+    background-color:
+            /*rgba(128,223,255 , 0.9);*/
+            #fff1df;
     width: 35%;
     /*height: 30%;*/
     /*margin: 0 auto;*/
