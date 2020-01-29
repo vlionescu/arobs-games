@@ -69,7 +69,6 @@ class GameList extends React.Component {
   render() {
     return (
       <div className="container">
-        <OpenPopup/>
         <h2>Games</h2>
         <div className="gameList">{this.gamesInGrid()}</div>
       </div>
