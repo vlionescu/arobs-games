@@ -1,5 +1,5 @@
 // Fetch.js
-const _apiHost = "https://arobs-games-server.herokuapp.com";
+const _apiHost = "http://localhost:8080";
 
 async function request(url, params, method = "GET") {
     const options = {
