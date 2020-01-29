@@ -1,25 +1,18 @@
 import React from "react";
 import './App.css';
-import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import { Route, Switch} from "react-router-dom";
 
 function RoutesComponent() {
     return (
-        <Router>
+
             <Switch>
-                <Route exact path="/">
-                    <Scores />
-                </Route>
-                <Route path="/games">
-                    <Games />
-                </Route>
-                <Route path="/scores/:id">
-                    <ScoresById />
-                </Route>
-                <Route path="/games/:id">
-                    <GamesById />
-                </Route>
+                <Route exact path="/scores" component={Scores}/>
+                <Route exact path="/games" component={Games}/>
+                <Route exact path="/scores/:id" component={ScoresById}/>
+                <Route exact path="/games/:id" component={GamesById}/>
+                    {/*<GamesById />*/}
+
             </Switch>
-        </Router>
     );
 }
 

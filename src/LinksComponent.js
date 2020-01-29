@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import RoutesComponent from "./RoutesComponent";
 import {BrowserRouter as Router, Link} from "react-router-dom";
 
 
@@ -21,7 +22,9 @@ function LinksComponent() {
                 <Link to="/games/:id">GamesById</Link>
             </li>
         </ul>
+
     </div>
+            <RoutesComponent/>
         </Router>
     );
 }
