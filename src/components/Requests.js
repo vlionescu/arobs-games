@@ -22,12 +22,7 @@ async function request(url, params, method = "GET") {
 
   if (response.status !== 200) {
     const result = await response.json();
-
-    return generateErrorResponse(
-        response.ok,
-      response.status,
-        result.error
-    );
+    return generateErrorResponse(response.ok, response.status, result.error);
   }
 
   const result = await response.json();
@@ -41,11 +36,11 @@ function objectToQueryString(obj) {
     .join("&");
 }
 
-function generateErrorResponse(ok,status, message) {
+function generateErrorResponse(ok, status, error) {
   return {
-    ok:ok,
+    ok: ok,
     status: status,
-    error: message
+    error: error
   };
 }
 
