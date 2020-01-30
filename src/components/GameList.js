@@ -1,8 +1,7 @@
 import React from "react";
 import Requests from "./Requests";
 import ReactImageFallback from "react-image-fallback";
-
-import "../App.css";
+import "../styles/gamelist.css";
 
 const getNpiecesOfWord = (str, pieces) => {
   let overview = "";
@@ -36,7 +35,7 @@ class GameList extends React.Component {
 
   gamesInGrid = () => {
     const list = this.state.games.map(game => {
-      let imgsrc = "https://arobs-games-server.herokuapp.com/" + game.imageUrl;
+      let imgsrc = "http://localhost:8080/" + game.imageUrl;
 
       return (
         <div
@@ -48,7 +47,7 @@ class GameList extends React.Component {
             className="screenshot"
             src={imgsrc}
             alt={game.name ? game.name : "No Title"}
-            fallbackImage="./no-image.png"
+            fallbackImage={require("../images/no-image.png")}
             initialImage="loader.gif"
           />
           <div className="description">
@@ -67,7 +66,7 @@ class GameList extends React.Component {
 
   render() {
     return (
-      <div className="container">
+      <div className="containerGamelist">
         <h2>Games</h2>
         <div className="gameList">{this.gamesInGrid()}</div>
       </div>

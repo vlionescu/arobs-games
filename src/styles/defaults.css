@@ -1,0 +1,8 @@
+html {
+    background-image: radial-gradient( circle at top right, hsl(112, 60%, 23%), hsl(226, 49%, 26%));
+    min-height: 100%;
+    height: auto;
+    overflow-x: hidden;
+    top: 0;
+    left: 0;
+}

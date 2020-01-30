@@ -1,4 +1,4 @@
-.container {
+.containerGamelist {
   margin-right: auto;
   margin-left: auto;
   position: relative;
@@ -6,12 +6,6 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-image: radial-gradient( circle at top right, hsl(112, 60%, 23%), hsl(226, 49%, 26%));
-  min-height: 100%;
-  height: auto;
-  overflow-x: hidden;
-  top: 0;
-  left: 0;
 }
 
 /* LANDING PAGE */
@@ -23,9 +17,11 @@
   color: white;
 }
 
-h2 {
+.containerGamelist h2 {
   color: white;
   font-size: 2em;
+  margin-top: 1em;
+  margin-bottom: 2em;
 }
 
 .gamecomponent {
