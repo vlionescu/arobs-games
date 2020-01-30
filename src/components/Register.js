@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import "../styles/register.css";
 import Requests from "./Requests";
+import "../styles/register.css";
+
 
 export default class Register extends Component {
   constructor(props) {
@@ -68,9 +69,9 @@ export default class Register extends Component {
 
   render() {
     return (
-      <div className="container">
+      <div className="containerRegister">
         <form onSubmit={this.handleSubmit}>
-          <h1>Name</h1>
+          <p>Name</p>
           <input
             type="text"
             name="name"
@@ -83,7 +84,7 @@ export default class Register extends Component {
             <p className="validation">{this.state.nameError}</p>
           </div>
 
-          <h1>Email</h1>
+          <p>Email</p>
           <input
             type="text"
             name="email"
@@ -97,7 +98,7 @@ export default class Register extends Component {
             <p className="validation">{this.state.emailError}</p>
           </div>
 
-          <h1>Password</h1>
+          <p>Password</p>
           <input
             type="password"
             name="password"
@@ -111,7 +112,7 @@ export default class Register extends Component {
             <p className="validation">{this.state.passwordError}</p>
           </div>
           <button type="submit" className="btn btn-success btn-block">
-            Submit
+            Register
           </button>
         </form>
       </div>
