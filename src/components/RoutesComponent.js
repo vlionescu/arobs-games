@@ -13,7 +13,9 @@ function RoutesComponent() {
           <Switch>
             <Route exact path="/" component={GameList} />
             <Route exact path="/games" component={GameList} />
+
             <Route exact path="/register" component={Register} />
+
 
             {/* <Route exact path="/games/:id" component={...} /> */}
             {/* <Route exact path="/scores/:id" component={...} /> */}
