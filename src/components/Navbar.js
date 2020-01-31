@@ -18,6 +18,9 @@ function Navbar() {
           <li>
             <Link to="/scores">Scores</Link>
           </li>
+            <li className="btn-login">
+                <Link to="/login">Login</Link>
+            </li>
         </ul>
       </div>
     </div>

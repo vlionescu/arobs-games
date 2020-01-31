@@ -6,3 +6,10 @@ html {
     top: 0;
     left: 0;
 }
+body{
+    min-height: 100%;
+    height: auto;
+    overflow-x: hidden;
+    top: 0;
+    left: 0;
+}

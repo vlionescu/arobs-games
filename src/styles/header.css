@@ -1,9 +1,12 @@
 .container {
     height: 75px;
-    box-shadow: 0px 10px 37px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0 10px 37px 0 rgba(0, 0, 0, 0.75);
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    background-image: linear-gradient(to right , var(--color-primary-dark), var(--color-secondary-dark));
+
+
 }
 
 .container .logo {
@@ -42,9 +45,10 @@
 }
 
 .container .navbar ul li a {
+    font-family: var(--h3-primary-font);
     text-decoration: none;
     color: white;
-    font-size: 21px;
+    font-size: 25px;
     /*text-transform: uppercase;*/
     display: block;
     height: 65px;
@@ -73,3 +77,16 @@
         padding: 0 10px;
     }
 }
+
+.btn-login{
+    position:absolute;
+    right:0;
+    top: auto;
+    margin-right:50px;
+}
+
+
+
+
+
+
