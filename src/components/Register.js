@@ -64,7 +64,16 @@ export default class Register extends Component {
   handleSubmit = event => {
     event.preventDefault();
     const { name, email, password } = this.state;
-    Requests.create("/users", { name: name, email: email, password: password });
+    Requests.create("/users", { name: name, email: email, password: password }).then(
+        (response)=>{
+          this.setState({ loginerror: "" } );
+          if(!response.ok) {
+            this.setState({ loginerror: response.error } );
+          }
+          localStorage.setItem("token", response.token);
+          console.log(localStorage.getItem("token"))
+        }
+    );
   };
 
   render() {
@@ -117,5 +126,5 @@ export default class Register extends Component {
         </form>
       </div>
     );
-  }
+  };
 }

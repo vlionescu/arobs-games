@@ -32,8 +32,10 @@ export default class Login extends Component {
                 if(!response.ok) {
                     this.setState({ loginerror: response.error } );
                 }
+                localStorage.setItem("token", response.token);
+                console.log(localStorage.getItem("token"))
             }
-            );
+        );
     };
 
      toRegister = () =>  {
