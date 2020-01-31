@@ -11,6 +11,7 @@ export default class Login extends Component {
             name: "",
             password: "",
             loginerror:""
+            // i modified here for state commit
         };
     }
 
