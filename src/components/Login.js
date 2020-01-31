@@ -67,7 +67,7 @@ export default class Login extends Component {
                     <button type="submit" className="btn btn-success btn-block">
                         Log in
                     </button>
-                    <button onClick={ this.toRegister} className="btn btn-success btn-block">
+                    <button onClick={ this.toRegister} type="" className="btn btn-success btn-block">
                         Register
                     </button>
                 </form>

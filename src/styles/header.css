@@ -46,9 +46,10 @@
 }
 
 .container .navbar ul li a {
+    font-family: var(--h3-primary-font);
     text-decoration: none;
     color: white;
-    font-size: 21px;
+    font-size: 25px;
     /*text-transform: uppercase;*/
     display: block;
     height: 65px;
@@ -60,8 +61,6 @@
 .container .navbar ul li a:hover {
     color: #ffffff;
     background-color: rgba(23, 23, 23, 0.9);
-    /*box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);*/
-    /*transform: translateY(-2px);*/
 }
 
 @media only screen and (max-width: 650px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
