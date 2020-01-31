@@ -33,7 +33,6 @@ export default class Login extends Component {
                     this.setState({ loginerror: response.error } );
                 }
                 localStorage.setItem("token", response.token);
-                console.log(localStorage.getItem("token"))
             }
         );
     };
