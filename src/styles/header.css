@@ -4,7 +4,6 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    /*//background-color: var(--header-color-secondary); //alta culoare*/
     background-image: linear-gradient(to right , var(--color-primary-dark), var(--color-secondary-dark));
 
 

@@ -6,13 +6,10 @@ html {
     top: 0;
     left: 0;
 }
-/*TEST GABRIEL*/
 body{
-    /*background-image: linear-gradient(to right , var(--color-primary-dark), var(--color-secondary-dark));*/
     min-height: 100%;
     height: auto;
     overflow-x: hidden;
     top: 0;
     left: 0;
-    /*background-color: var(--color-grey-dark );*/
 }
