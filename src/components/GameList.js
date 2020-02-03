@@ -22,6 +22,7 @@ class GameList extends React.Component {
 
   gamesInGrid = () => {
     const list = this.state.games.map(game => {
+
       let imgsrc = _apiHost + "/" + game.imageUrl;
 
       return (
