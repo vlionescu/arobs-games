@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Requests from "./Requests";
+import { _apiHost } from "./utils";
 import "../styles/iframe.css";
 
 export default class Iframe extends Component {
@@ -17,7 +18,7 @@ export default class Iframe extends Component {
   }
 
   render() {
-    const host = "https://arobs-games-server.herokuapp.com/games/";
+    const host = _apiHost + "/games/";
     const index = "/index.html";
 
     return (
