@@ -4,6 +4,7 @@ import Navbar from "./Navbar";
 import GameList from "./GameList";
 import Register from "./Register";
 import Login from "./Login";
+import Iframe from "./Iframe";
 
 
 function RoutesComponent() {
@@ -17,6 +18,7 @@ function RoutesComponent() {
             <Route exact path="/games" component={GameList} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
+            <Route exact path="/games/:id" component={Iframe} />
           </Switch>
         </div>
       </div>
