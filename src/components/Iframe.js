@@ -17,7 +17,7 @@ export default class Iframe extends Component {
   }
 
   render() {
-    const host = "http://localhost:8080/games/";
+    const host = "https://arobs-games-server.herokuapp.com/games/";
     const index = "/index.html";
 
     return (
