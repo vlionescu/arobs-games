@@ -1,5 +1,4 @@
-// Fetch.js
-const _apiHost = "https://arobs-games-server.herokuapp.com";
+import { _apiHost } from "./utils";
 
 async function request(url, params, method = "GET") {
   const options = {
@@ -19,15 +18,23 @@ async function request(url, params, method = "GET") {
   }
 
   const response = await fetch(_apiHost + url, options);
+  let result = {};
 
   if (response.status !== 200) {
-    const result = await response.json();
-    return generateErrorResponse(response.ok, response.status, result.error);
+    try {
+      result = await response.json();
+      return generateErrorResponse(response.ok, response.status, result.error);
+    } catch (error) {
+      return generateErrorResponse(false, response.status, "");
+    }
   }
 
-  const result = await response.json();
-
-  return result;
+  try {
+    result = await response.json();
+    return result;
+  } catch (error) {
+    return generateErrorResponse(false, response.status, "");
+  }
 }
 
 function objectToQueryString(obj) {

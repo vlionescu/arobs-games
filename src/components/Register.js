@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Requests from "./Requests";
+import { saveTokenIntoLocalStorage } from "./utils.js";
 import "../styles/register.css";
-
 
 export default class Register extends Component {
   constructor(props) {
@@ -12,7 +12,8 @@ export default class Register extends Component {
       password: "",
       nameError: "",
       emailError: "",
-      passwordError: ""
+      passwordError: "",
+      registererror: ""
     };
   }
 
@@ -64,7 +65,19 @@ export default class Register extends Component {
   handleSubmit = event => {
     event.preventDefault();
     const { name, email, password } = this.state;
-    Requests.create("/users", { name: name, email: email, password: password });
+    Requests.create("/users", {
+      name: name,
+      email: email,
+      password: password
+    }).then(response => {
+      this.setState({ registererror: "" });
+      if (!response.ok) {
+        this.setState({ registererror: response.error });
+      }
+      if (saveTokenIntoLocalStorage(response)) {
+        this.props.history.push("/");
+      }
+    });
   };
 
   render() {
@@ -114,6 +127,9 @@ export default class Register extends Component {
           <button type="submit" className="btn btn-success btn-block">
             Register
           </button>
+          <div className="invalid-feedback">
+            <p className="validation">{this.state.registererror}</p>
+          </div>
         </form>
       </div>
     );
