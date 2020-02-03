@@ -1,8 +1,43 @@
-import * as React from "react";
-import { Link } from "react-router-dom";
+import React from "react";
+import { Link, withRouter } from "react-router-dom";
+import { removeTokenFromLocalStorage } from "./utils";
+import Scores from "./Scores.js";
 import "../styles/header.css";
 
-function Navbar() {
+const defaultLinks = (
+  <ul id="nav-lists">
+    <li>
+      <Link to="/games">Games</Link>
+    </li>
+    <li className="btn-login">
+      <Link to="/login">Login</Link>
+    </li>
+  </ul>
+);
+
+const Navbar = props => {
+  const linksForAuthenticatedUser = (
+    <ul id="nav-lists">
+      <li>
+        <Link to="/games">Games</Link>
+      </li>
+      <li>
+        <Scores />
+      </li>
+      <li className="btn-login">
+        <a
+          href="/#"
+          onClick={() => {
+            removeTokenFromLocalStorage();
+            props.history.push("/");
+          }}
+        >
+          Logout
+        </a>
+      </li>
+    </ul>
+  );
+
   return (
     <div className="container">
       <div className="logo">
@@ -11,19 +46,9 @@ function Navbar() {
         </Link>
       </div>
       <div className="navbar">
-        <ul id="nav-lists">
-          <li>
-            <Link to="/games">Games</Link>
-          </li>
-          <li>
-            <Link to="/scores">Scores</Link>
-          </li>
-            <li className="btn-login">
-                <Link to="/login">Login</Link>
-            </li>
-        </ul>
+        {localStorage.token ? linksForAuthenticatedUser : defaultLinks}
       </div>
     </div>
   );
-}
-export default Navbar;
+};
+export default withRouter(Navbar);

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Requests from "./Requests";
+import { _apiHost } from "./utils";
 import "../styles/iframe.css";
 import Popup from "./Popup";
 
@@ -29,7 +30,9 @@ export default class Iframe extends Component {
   }
 
   render() {
-    const host = "http://localhost:8080/games/";
+
+    const host = _apiHost + "/games/";
+    
     const index = "/index.html";
 
     return (

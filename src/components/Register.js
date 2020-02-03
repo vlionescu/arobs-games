@@ -1,19 +1,19 @@
 import React, { Component } from "react";
 import Requests from "./Requests";
+import { saveTokenIntoLocalStorage } from "./utils.js";
 import "../styles/register.css";
-
 
 export default class Register extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: null,
-      email: null,
-      password: null,
-      nameError: null,
-      emailError: null,
-      passwordError: null,
-      registererror:null
+      name: "",
+      email: "",
+      password: "",
+      nameError: "",
+      emailError: "",
+      passwordError: "",
+      registererror: ""
     };
   }
 
@@ -62,17 +62,22 @@ export default class Register extends Component {
     });
   };
 
-  handleSubmit =async event => {
+  handleSubmit = event => {
     event.preventDefault();
     const { name, email, password } = this.state;
-    const response = await Requests.create("/users", { name: name, email: email, password: password });
-    console.log(response);
-    if(!response.ok) {
-      this.setState({ registererror: response.error } );
-    }
-    if (response.auth){
-      this.props.history.push("/login");
-    }
+    Requests.create("/users", {
+      name: name,
+      email: email,
+      password: password
+    }).then(response => {
+      this.setState({ registererror: "" });
+      if (!response.ok) {
+        this.setState({ registererror: response.error });
+      }
+      if (saveTokenIntoLocalStorage(response)) {
+        this.props.history.push("/");
+      }
+    });
   };
 
   render() {
@@ -119,14 +124,14 @@ export default class Register extends Component {
           <div className="invalid-feedback">
             <p className="validation">{this.state.passwordError}</p>
           </div>
-          <div className="invalid-feedback">
-            <p className="validation">{this.state.registererror}</p>
-          </div>
           <button type="submit" className="btn btn-success btn-block">
             Register
           </button>
+          <div className="invalid-feedback">
+            <p className="validation">{this.state.registererror}</p>
+          </div>
         </form>
       </div>
     );
-  };
+  }
 }
