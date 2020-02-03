@@ -7,12 +7,13 @@ export default class Register extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: "",
-      email: "",
-      password: "",
-      nameError: "",
-      emailError: "",
-      passwordError: ""
+      name: null,
+      email: null,
+      password: null,
+      nameError: null,
+      emailError: null,
+      passwordError: null,
+      registererror:null
     };
   }
 
@@ -61,10 +62,17 @@ export default class Register extends Component {
     });
   };
 
-  handleSubmit = event => {
+  handleSubmit =async event => {
     event.preventDefault();
     const { name, email, password } = this.state;
-    Requests.create("/users", { name: name, email: email, password: password });
+    const response = await Requests.create("/users", { name: name, email: email, password: password });
+    console.log(response);
+    if(!response.ok) {
+      this.setState({ registererror: response.error } );
+    }
+    if (response.auth){
+      this.props.history.push("/login");
+    }
   };
 
   render() {
@@ -111,11 +119,14 @@ export default class Register extends Component {
           <div className="invalid-feedback">
             <p className="validation">{this.state.passwordError}</p>
           </div>
+          <div className="invalid-feedback">
+            <p className="validation">{this.state.registererror}</p>
+          </div>
           <button type="submit" className="btn btn-success btn-block">
             Register
           </button>
         </form>
       </div>
     );
-  }
+  };
 }
