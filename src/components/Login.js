@@ -23,18 +23,19 @@ export default class Login extends Component {
         this.setState({ password: event.target.value } );
     };
 
-    handleSubmit = event => {
+    handleSubmit = async event => {
         event.preventDefault();
         const { name, password } = this.state;
-        Requests.create("/login", { name: name, password: password }).then(
-            (response)=>{
-                this.setState({ loginerror: "" } );
+        const response = await Requests.create("/login", { name: name, password: password })
                 if(!response.ok) {
                     this.setState({ loginerror: response.error } );
                 }
-                localStorage.setItem("token", response.token);
-            }
-        );
+                if (response.auth){
+                    localStorage.setItem("token", response.token);
+                    localStorage.setItem("username", response.username);
+                    this.props.history.push("/games");
+
+                }
     };
 
      toRegister = () =>  {
