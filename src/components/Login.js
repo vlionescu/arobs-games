@@ -4,54 +4,40 @@ import { saveTokenIntoLocalStorage } from "./utils.js";
 import "../styles/register.css";
 
 export default class Login extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            name: null,
-            password: null,
-            loginerror:null
-            // i modified here for state commit
-        };
-    }
-
-    handleNameChange = event => {
-        this.setState({ name: event.target.value } );
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: "",
+      password: "",
+      loginerror: ""
+      // i modified here for state commit
     };
-  
+  }
 
   handleNameChange = event => {
     this.setState({ name: event.target.value });
   };
 
-    handleSubmit = async event => {
-        event.preventDefault();
-        const { name, password } = this.state;
-        const response = await Requests.create("/login", { name: name, password: password })
-                if(!response.ok) {
-                    this.setState({ loginerror: response.error } );
-                }
-                if (response.auth){
-                    localStorage.setItem("token", response.token);
-                    localStorage.setItem("username", response.username);
-                    this.props.history.push("/games");
+  handlePasswordChange = event => {
+    this.setState({ password: event.target.value });
+  };
 
-                }
-    };
 
-  handleSubmit = event => {
+  handleSubmit = async event => {
     event.preventDefault();
     const { name, password } = this.state;
-    Requests.create("/login", { name: name, password: password }).then(
-      response => {
-        this.setState({ loginerror: "" });
-        if (!response.ok) {
-          this.setState({ loginerror: response.error });
-        }
-        if (saveTokenIntoLocalStorage(response)){
-          this.props.history.push("/");
-        };
-      }
-    );
+    const response = await Requests.create("/login", {
+      name: name,
+      password: password
+    });
+    if (!response.ok) {
+      this.setState({ loginerror: response.error });
+    }
+    if (response.auth) {
+      localStorage.setItem("token", response.token);
+      localStorage.setItem("username", response.username);
+      this.props.history.push("/games");
+    }
   };
 
   toRegister = () => {
