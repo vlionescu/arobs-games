@@ -25,5 +25,3 @@ yarn-debug.log*
 yarn-error.log*
 package-lock.json
 
-style/testColor.html
-style/testlocal.css
