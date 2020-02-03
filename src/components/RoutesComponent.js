@@ -8,7 +8,6 @@ import Iframe from "./Iframe";
 import ScoreByGameId from "./ScoreByGameId";
 
 
-
 function RoutesComponent() {
   return (
     <Router>
@@ -22,6 +21,7 @@ function RoutesComponent() {
             <Route exact path="/games/:id" component={Iframe} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
+            <Route exact path="/games/:id" component={Iframe} />
           </Switch>
         </div>
       </div>
