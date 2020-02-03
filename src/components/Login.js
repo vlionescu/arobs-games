@@ -3,6 +3,7 @@ import Requests from "./Requests";
 import "../styles/register.css";
 
 
+
 export default class Login extends Component {
     constructor(props) {
         super(props);
@@ -10,6 +11,7 @@ export default class Login extends Component {
             name: "",
             password: "",
             loginerror:""
+            // i modified here for state commit
         };
     }
 
@@ -32,6 +34,10 @@ export default class Login extends Component {
                 }
             }
             );
+    };
+
+     toRegister = () =>  {
+         this.props.history.push('/register/');
     };
 
     render() {
@@ -61,6 +67,9 @@ export default class Login extends Component {
                     </div>
                     <button type="submit" className="btn btn-success btn-block">
                         Log in
+                    </button>
+                    <button onClick={ this.toRegister} type="" className="btn btn-success btn-block">
+                        Register
                     </button>
                 </form>
             </div>
