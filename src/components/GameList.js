@@ -27,11 +27,10 @@ class GameList extends React.Component {
 
   async componentDidMount() {
     this.setState({ games: await Requests.get("/games") });
-    console.log(this.state.games);
   }
 
-  onClickHandle = id => {
-    this.props.history.push("/games/" + id);
+  onClickHandle = async id => {
+    await this.props.history.push("/games/" + id);
   };
 
   gamesInGrid = () => {
