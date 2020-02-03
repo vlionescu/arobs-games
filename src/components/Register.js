@@ -7,13 +7,13 @@ export default class Register extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: "",
-      email: "",
-      password: "",
-      nameError: "",
-      emailError: "",
-      passwordError: "",
-      registererror:""
+      name: null,
+      email: null,
+      password: null,
+      nameError: null,
+      emailError: null,
+      passwordError: null,
+      registererror:null
     };
   }
 

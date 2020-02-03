@@ -8,9 +8,9 @@ export default class Login extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            name: "",
-            password: "",
-            loginerror:""
+            name: null,
+            password: null,
+            loginerror:null
             // i modified here for state commit
         };
     }
