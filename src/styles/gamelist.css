@@ -36,9 +36,6 @@
 .description {
   display: flex;
   flex-direction: column;
-  position:absolute;
-  bottom:20px;
-  right:auto;
 }
 
 .gamename {
@@ -54,7 +51,7 @@
 .screenshot {
   width: 100%;
   max-width: 200px;
-  max-height: 200px;
+  height: 150px;
   cursor: pointer;
 }
 

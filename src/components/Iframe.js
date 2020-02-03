@@ -29,7 +29,7 @@ export default class Iframe extends Component {
               className="iframe"
               title={this.state.name}
               src={host + this.state.name + index}
-            ></iframe>
+            />
           ) : null}
         </div>
       </div>

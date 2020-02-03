@@ -1,5 +1,5 @@
 // Fetch.js
-const _apiHost = "https://arobs-games-server.herokuapp.com";
+const _apiHost = "https://arobs-games-server.herokuapp.com/";
 
 async function request(url, params, method = "GET") {
   const options = {

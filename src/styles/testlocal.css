@@ -1,0 +1,45 @@
+
+.div{
+    margin:20px;
+    padding: 20px;
+}
+body{
+    font-family: var(--h1-primary-font);
+    font-weight: 400;
+    font-size: 30px;
+    margin: 20px;
+    height: 95vh;
+    width: border-box;
+}
+
+.root{
+    display:flex;
+    justify-content: space-evenly;
+    height: inherit;
+    width: inherit;
+}
+
+li{
+    font-family: "Jockey One", sans-serif;
+}
+
+.a{
+    background-color: var(--color-primary);
+    flex:20%;
+}
+.b{
+    background-color: var(--color-primary-light);
+    flex:20%;
+}
+.c{
+    background-color: var(--color-primary-dark);
+    flex:20%;
+}
+.d{
+    background-color: var(--color-secondary-dark);
+    flex:20%;
+}
+.e{
+    background-color: var(--color-secondary-light);
+    flex:20%;
+}
