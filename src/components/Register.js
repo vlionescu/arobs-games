@@ -62,22 +62,16 @@ export default class Register extends Component {
     });
   };
 
-  handleSubmit = event => {
+  handleSubmit = async event => {
     event.preventDefault();
     const { name, email, password } = this.state;
-    Requests.create("/users", {
-      name: name,
-      email: email,
-      password: password
-    }).then(response => {
-      this.setState({ registererror: "" });
-      if (!response.ok) {
-        this.setState({ registererror: response.error });
-      }
-      if (saveTokenIntoLocalStorage(response)) {
-        this.props.history.push("/");
-      }
-    });
+    const response = await Requests.create("/users", { name: name, email: email, password: password });
+    if (!response.ok) {
+      this.setState({ registererror: response.error });
+    }
+    if (response.auth){
+      this.props.history.push("/login");
+    }
   };
 
   render() {

@@ -3,6 +3,7 @@ import Requests from "./Requests";
 import { _apiHost } from "./utils";
 import "../styles/iframe.css";
 import Popup from "./Popup";
+import Loader from "./Spinner";
 
 export default class Iframe extends Component {
   constructor(props) {
@@ -46,7 +47,7 @@ export default class Iframe extends Component {
               src={host + this.state.name + index}
               sandbox="allow-same-origin allow-scripts"
             ></iframe>
-          ) : null}
+          ) : <Loader/>}
         </div>
         {this.state.showPopup ? (
           <Popup score={this.state.score} closePopup={this.togglePopup} />
