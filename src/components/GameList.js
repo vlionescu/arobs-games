@@ -1,23 +1,8 @@
 import React from "react";
 import Requests from "./Requests";
 import ReactImageFallback from "react-image-fallback";
-
-import "../App.css";
-import OpenPopup from "./OpenPopup";
-
-const getNpiecesOfWord = (str, pieces) => {
-  let overview = "";
-  if (str) {
-    overview = str
-      .split(/\s+/)
-      .slice(0, pieces)
-      .join(" ");
-    if (str.length > overview.length) {
-      overview += " ...";
-    }
-  }
-  return overview;
-};
+import { getNpiecesOfWord, _apiHost } from "./utils";
+import "../styles/gamelist.css";
 
 class GameList extends React.Component {
   constructor(props) {
@@ -32,12 +17,12 @@ class GameList extends React.Component {
   }
 
   onClickHandle = id => {
-    // this.props.history.push("/games/" + id);
+    this.props.history.push("/games/" + id);
   };
 
   gamesInGrid = () => {
     const list = this.state.games.map(game => {
-      let imgsrc = "https://arobs-games-server.herokuapp.com/" + game.imageUrl;
+      let imgsrc = _apiHost + "/" + game.imageUrl;
 
       return (
         <div
@@ -49,7 +34,7 @@ class GameList extends React.Component {
             className="screenshot"
             src={imgsrc}
             alt={game.name ? game.name : "No Title"}
-            fallbackImage="./no-image.png"
+            fallbackImage={require("../images/no-image.png")}
             initialImage="loader.gif"
           />
           <div className="description">
@@ -68,7 +53,7 @@ class GameList extends React.Component {
 
   render() {
     return (
-      <div className="container">
+      <div className="containerGamelist">
         <h2>Games</h2>
         <div className="gameList">{this.gamesInGrid()}</div>
       </div>
