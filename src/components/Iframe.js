@@ -1,14 +1,26 @@
 import React, { Component } from "react";
 import Requests from "./Requests";
 import "../styles/iframe.css";
+import Popup from "./Popup";
 
 export default class Iframe extends Component {
   constructor(props) {
+    window.setScore = score => {
+      this.state.score = score;
+      this.togglePopup();
+    };
     super(props);
     this.state = {
-      name: ""
+      name: "",
+      showPopup: false,
+      score: null
     };
   }
+  togglePopup = () => {
+    this.setState(prevState => ({
+      showPopup: !prevState.showPopup
+    }));
+  };
 
   async componentDidMount() {
     const id = await this.props.match.params.id;
@@ -17,7 +29,7 @@ export default class Iframe extends Component {
   }
 
   render() {
-    const host = "https://arobs-games-server.herokuapp.com/games/";
+    const host = "http://localhost:8080/games/";
     const index = "/index.html";
 
     return (
@@ -29,9 +41,13 @@ export default class Iframe extends Component {
               className="iframe"
               title={this.state.name}
               src={host + this.state.name + index}
+              sandbox="allow-same-origin allow-scripts"
             ></iframe>
           ) : null}
         </div>
+        {this.state.showPopup ? (
+          <Popup score={this.state.score} closePopup={this.togglePopup} />
+        ) : null}
       </div>
     );
   }
