@@ -4,9 +4,7 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    background-image: linear-gradient(to right , var(--color-primary-dark), var(--color-secondary-dark));
-
-
+    background-image: linear-gradient(to right, var(--color-primary-dark), var(--color-secondary-dark));
 }
 
 .container .logo {
@@ -78,15 +76,9 @@
     }
 }
 
-.btn-login{
-    position:absolute;
-    right:0;
+.btn-login {
+    position: absolute;
+    right: 0;
     top: auto;
-    margin-right:50px;
+    margin-right: 50px;
 }
-
-
-
-
-
-

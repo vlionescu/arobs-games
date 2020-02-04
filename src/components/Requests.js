@@ -3,10 +3,7 @@ import { _apiHost } from "./utils";
 async function request(url, params, method = "GET") {
   const options = {
     method,
-    headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json"
-    }
+    headers: setHeaders()
   };
 
   if (params) {
@@ -35,6 +32,19 @@ async function request(url, params, method = "GET") {
   } catch (error) {
     return generateErrorResponse(false, response.status, "");
   }
+}
+
+function setHeaders() {
+  return localStorage.getItem("token")
+    ? {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        "x-access-token": localStorage.getItem("token")
+      }
+    : {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      };
 }
 
 function objectToQueryString(obj) {

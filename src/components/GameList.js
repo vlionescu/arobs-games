@@ -3,6 +3,7 @@ import Requests from "./Requests";
 import ReactImageFallback from "react-image-fallback";
 import { getNpiecesOfWord, _apiHost } from "./utils";
 import "../styles/gamelist.css";
+import OpenPopup from "./OpenPopup";
 
 class GameList extends React.Component {
   constructor(props) {
@@ -22,6 +23,7 @@ class GameList extends React.Component {
 
   gamesInGrid = () => {
     const list = this.state.games.map(game => {
+
       let imgsrc = _apiHost + "/" + game.imageUrl;
 
       return (
