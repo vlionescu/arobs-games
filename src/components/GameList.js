@@ -4,6 +4,7 @@ import ReactImageFallback from "react-image-fallback";
 import { getNpiecesOfWord, _apiHost } from "./utils";
 import "../styles/gamelist.css";
 import OpenPopup from "./OpenPopup";
+import Loader from "./Spinner";
 
 class GameList extends React.Component {
   constructor(props) {
@@ -36,8 +37,7 @@ class GameList extends React.Component {
             className="screenshot"
             src={imgsrc}
             alt={game.name ? game.name : "No Title"}
-            fallbackImage={require("../images/no-image.png")}
-            initialImage="loader.gif"
+            fallbackImage={<Loader width={150}/>}
           />
           <div className="description">
             <p className="gamename">{game.name ? game.name : "No Title"}</p>
