@@ -9,10 +9,10 @@ export default class Register extends Component {
       name: "",
       email: "",
       password: "",
-      nameError: "",
-      emailError: "",
-      passwordError: "",
-      registererror: ""
+      nameError: null,
+      emailError: null,
+      passwordError: null,
+      registererror: null
     };
   }
 
@@ -64,12 +64,25 @@ export default class Register extends Component {
   handleSubmit = async event => {
     event.preventDefault();
     const { name, email, password } = this.state;
-    const response = await Requests.create("/users", { name: name, email: email, password: password });
-    if (!response.ok) {
-      this.setState({ registererror: response.error });
-    }
-    if (response.auth){
-      this.props.history.push("/login");
+
+    if (
+      this.state.nameError !== null ||
+      this.state.passwordError !== null ||
+      this.state.emailError !== null
+    ) {
+      this.setState({ registererror: "Something went wrong." });
+    } else {
+      const response = await Requests.create("/users", {
+        name: name,
+        email: email,
+        password: password
+      });
+      if (!response.ok) {
+        this.setState({ registererror: response.error });
+      }
+      if (response.auth) {
+        this.props.history.push("/login");
+      }
     }
   };
 
