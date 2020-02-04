@@ -35,6 +35,9 @@ const Navbar = props => {
           Logout
         </a>
       </li>
+      <li>
+        <p>Hello, {localStorage.getItem("username")}</p>
+      </li>
     </ul>
   );
 
