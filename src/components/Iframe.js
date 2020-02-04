@@ -15,7 +15,8 @@ export default class Iframe extends Component {
     this.state = {
       name: "",
       showPopup: false,
-      score: null
+      score: null,
+      username: ""
     };
   }
   togglePopup = () => {
@@ -27,7 +28,7 @@ export default class Iframe extends Component {
   async componentDidMount() {
     const id = await this.props.match.params.id;
     const game = await Requests.get("/games/" + id);
-    this.setState({ name: game.name });
+    this.setState({ name: game.name, username:localStorage.getItem("username")  });
   }
 
   render() {
@@ -50,7 +51,7 @@ export default class Iframe extends Component {
           ) : <Loader/>}
         </div>
         {this.state.showPopup ? (
-          <Popup score={this.state.score} nameUser={localStorage.getItem("username")} closePopup={this.togglePopup} />
+          <Popup score={this.state.score} nameUser={this.state.username} closePopup={this.togglePopup} />
         ) : null}
       </div>
     );
