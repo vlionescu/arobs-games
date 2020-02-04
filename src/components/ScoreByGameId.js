@@ -35,11 +35,11 @@ class ScoresByGameId extends React.Component {
     getScoresInList = () => {
         const list = this.state.scores.map((score, index) => {
             return (
-                <li className="scoreListItem" key={index}>
-                    <p>
-                        {score.Points} <span>{score.Username}</span>
-                    </p>
-                </li>
+                    <tr className="scoreListItem">
+                        <td >{index+1}</td>
+                        <td>{score.Username}</td>
+                        <td>{score.Points}</td>
+                    </tr>
             );
         });
 
@@ -48,9 +48,24 @@ class ScoresByGameId extends React.Component {
 
     render() {
         return (
-            <div>
-                <h2>Scores</h2>
-                <ul className="scoreListClass gameListClass">{this.getScoresInList()} </ul>
+            <div id="mainDivScore">
+                <table  className="scoreListItem scoreTable">
+                    <tr>
+                        <td id={"top10"} align={"center"} colSpan="3">Top 10 Players</td>
+                    </tr>
+                    <tr id={"users"}>
+                        <th id={"users"}>
+                            Rank
+                        </th>
+                        <th id={"users"}>
+                            Username
+                        </th>
+                        <th id={"users"}>
+                            Score
+                        </th>
+                    </tr>
+                    {this.getScoresInList()}
+                </table>
             </div>
         );
     }
