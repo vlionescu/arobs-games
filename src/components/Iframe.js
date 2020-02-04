@@ -51,7 +51,7 @@ export default class Iframe extends Component {
           ) : <Loader/>}
         </div>
         {this.state.showPopup ? (
-          <Popup score={this.state.score} nameUser={this.state.username} closePopup={this.togglePopup} />
+          <Popup score={this.state.score} username={this.state.username} closePopup={this.togglePopup} />
         ) : null}
       </div>
     );

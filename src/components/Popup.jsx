@@ -33,7 +33,7 @@ class Popup extends Component {
         <div id="add_name">
           <label>
             {" "}
-            Hello, {this.props.nameUser}. Do you want to save your score ?
+            Hello, {this.props.username}. Do you want to save your score ?
           </label>
         </div>
         <button id="submit" onClick={this.handleClick}>

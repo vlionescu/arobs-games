@@ -31,7 +31,7 @@ class OpenPopup extends Component {
       <div className="App">
         <button onClick={this.togglePopup}>show popup</button>
         {this.state.showPopup ? (
-          <Popup score="89"  nameUser={this.state.username}  closePopup={this.togglePopup} />
+          <Popup score="89"  username={this.state.username}  closePopup={this.togglePopup} />
         ) : null}
       </div>
     );
