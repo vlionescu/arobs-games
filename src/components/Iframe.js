@@ -31,7 +31,7 @@ export default class Iframe extends Component {
     const game = await Requests.get("/games/" + id);
     if (!game.ok) {
       this.setState({ error: game.error });
-      // setTimeout(() => this.props.history.push("/login"), 3000);
+      setTimeout(() => this.props.history.push("/login"), 3000);
     } else {
       this.setState({
         name: game.name,
