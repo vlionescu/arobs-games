@@ -1,32 +1,34 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
+import "../styles/variables.css";
+import "../styles/popup.css";
 import Popup from "./Popup";
+import Iframe from "./Iframe";
 
 //this class is used to open the popup activity
 //It contains the functions necessary for opening and closing the popup
 
 class OpenPopup extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            showPopup: false
-        };
-    }
-    togglePopup=()=> {
-        this.setState((prevState)=>({
-            showPopup: !prevState.showPopup
-        }));
+  constructor(props) {
+    super(props);
+    this.state = {
+      showPopup: false
     };
-    render() {
-        return (
-            <div className="App">
-                <button onClick={this.togglePopup}>show popup</button>
-                {this.state.showPopup ?
-                    <Popup score='89' closePopup={this.togglePopup }/>
-                    :null
-                }
-            </div>
-        );
-    }
+  }
+  togglePopup = () => {
+    this.setState(prevState => ({
+      showPopup: !prevState.showPopup
+    }));
+  };
+  render() {
+    return (
+      <div className="App">
+        <button onClick={this.togglePopup}>show popup</button>
+        {this.state.showPopup ? (
+          <Popup score="89"  nameUser={localStorage.getItem("username")}  closePopup={this.togglePopup} />
+        ) : null}
+      </div>
+    );
+  }
 }
 
 export default OpenPopup;

@@ -1,14 +1,10 @@
 .container {
     height: 75px;
-    box-shadow: 0px 10px 37px 0px rgba(0,0,0,0.75);
-    background-image: radial-gradient(
-            circle at top right,
-            hsl(112, 60%, 23%),
-            hsl(226, 49%, 26%)
-    );
+    box-shadow: 0 10px 37px 0 rgba(0, 0, 0, 0.75);
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    background-image: linear-gradient(to right, var(--color-primary-dark), var(--color-secondary-dark));
 }
 
 .container .logo {
@@ -39,15 +35,18 @@
     margin: 0;
     padding: 0;
 }
-#nav-lists{
+
+#nav-lists {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
+
 .container .navbar ul li a {
+    font-family: var(--h3-primary-font);
     text-decoration: none;
     color: white;
-    font-size: 21px;
+    font-size: 25px;
     /*text-transform: uppercase;*/
     display: block;
     height: 65px;
@@ -61,10 +60,7 @@
     background-color: rgba(23, 23, 23, 0.9);
 }
 
-@media only screen and (max-width: 650px)
-and (orientation: portrait)
-and (-webkit-min-device-pixel-ratio : 1)
-{
+@media only screen and (max-width: 650px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
     .container {
         /*display: inline-table;*/
         display: flex;
@@ -78,4 +74,11 @@ and (-webkit-min-device-pixel-ratio : 1)
         color: white;
         padding: 0 10px;
     }
+}
+
+.btn-login {
+    position: absolute;
+    right: 0;
+    top: auto;
+    margin-right: 50px;
 }

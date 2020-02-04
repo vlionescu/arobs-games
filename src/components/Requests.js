@@ -1,69 +1,75 @@
-// Fetch.js
-const _apiHost = "https://arobs-games-server.herokuapp.com";
+import { _apiHost } from "./utils";
 
 async function request(url, params, method = "GET") {
-    const options = {
-        method,
-        headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json"
-        }
-    };
-
-    if (params) {
-        if (method === "GET") {
-            url += "?" + objectToQueryString(params);
-        } else {
-            options.body = JSON.stringify(params);
-        }
+  const options = {
+    method,
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json"
     }
+  };
 
-    const response = await fetch(_apiHost + url, options);
-
-    if (response.status !== 200) {
-        return generateErrorResponse(
-            response.status,
-            "The server responded with an unexpected status."
-        );
+  if (params) {
+    if (method === "GET") {
+      url += "?" + objectToQueryString(params);
+    } else {
+      options.body = JSON.stringify(params);
     }
+  }
 
-    const result = await response.json();
+  const response = await fetch(_apiHost + url, options);
+  let result = {};
 
+  if (response.status !== 200) {
+    try {
+      result = await response.json();
+      return generateErrorResponse(response.ok, response.status, result.error);
+    } catch (error) {
+      return generateErrorResponse(false, response.status, "");
+    }
+  }
+
+  try {
+    result = await response.json();
     return result;
+  } catch (error) {
+    return generateErrorResponse(false, response.status, "");
+  }
 }
 
 function objectToQueryString(obj) {
-    return Object.keys(obj)
-        .map(key => key + "=" + obj[key])
-        .join("&");
+  return Object.keys(obj)
+    .map(key => key + "=" + obj[key])
+    .join("&");
 }
 
-function generateErrorResponse(status, message) {
-    return {
-        status: status,
-        message: message
-    };
+function generateErrorResponse(ok, status, error) {
+  return {
+    ok: ok,
+    status: status,
+    error: error
+  };
 }
 
 function get(url, params) {
-    return request(url, params);
+  return request(url, params);
 }
 
 function create(url, params) {
-    return request(url, params, "POST");
+  return request(url, params, "POST");
 }
 
 function update(url, params) {
-    return request(url, params, "PUT");
+  return request(url, params, "PUT");
 }
 
 function remove(url, params) {
-    return request(url, params, "DELETE");
+  return request(url, params, "DELETE");
 }
 
 export default {
-    get,
-    create,
-    update,
-    remove
+  get,
+  create,
+  update,
+  remove
 };
