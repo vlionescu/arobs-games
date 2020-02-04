@@ -28,11 +28,8 @@ class Scores extends React.Component {
         >
           {game.name}
         </option>
-
-
       );
     });
-
     return list;
   };
 
@@ -44,7 +41,7 @@ class Scores extends React.Component {
         onChange={e => this.onChangeHandle(e.target.value)}
        >
         <option value=''>Score</option>
-        >{this.getScoresInList()}
+        {this.getScoresInList()}
       </select>
     );
   }

@@ -2,8 +2,6 @@ import React from "react";
 import Requests from "./Requests";
 import "../styles/scores.css";
 
-// import Scores from "../components/Scores";
-
 class ScoresByGameId extends React.Component {
     constructor(props) {
         super(props);
@@ -13,16 +11,24 @@ class ScoresByGameId extends React.Component {
         };
     }
 
+    async requestState(id) {
+        try{
+        const response = await Requests.get("/scores/" + id);
+        this.setState({id, scores: response});}
+        catch (e) {
+            console.log("Error in ScoreById: "+e);
+        }
+    }
 
     async componentDidMount() {
         const id = this.props.match.params.id;
-        this.setState({id, scores: await Requests.get("/scores/" + id)});
+        this.requestState(id);
     }
 
     async componentDidUpdate(nextProps, prevState) {
         const id = this.props.match.params.id;
         if (id !== prevState.id) {
-            this.setState({id, scores: await Requests.get("/scores/" + id)});
+            this.requestState(id);
         }
     }
 
@@ -40,7 +46,6 @@ class ScoresByGameId extends React.Component {
         return list;
     };
 
-
     render() {
         return (
             <div>
@@ -52,8 +57,3 @@ class ScoresByGameId extends React.Component {
 }
 
 export default ScoresByGameId;
-
-
-
-
-
