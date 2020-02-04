@@ -22,7 +22,11 @@ async function request(url, params, method = "GET") {
       result = await response.json();
       return generateErrorResponse(response.ok, response.status, result.error);
     } catch (error) {
-      return generateErrorResponse(false, response.status, "");
+      return generateErrorResponse(
+        false,
+        response.status,
+        "Something went wrong"
+      );
     }
   }
 
