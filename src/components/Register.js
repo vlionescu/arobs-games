@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Requests from "./Requests";
-import { saveTokenIntoLocalStorage } from "./utils.js";
 import "../styles/register.css";
 
 export default class Register extends Component {
