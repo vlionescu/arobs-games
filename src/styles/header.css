@@ -5,8 +5,6 @@
     flex-wrap: wrap;
     align-items: center;
     background-image: linear-gradient(to right , var(--color-primary-dark), var(--color-secondary-dark));
-
-
 }
 
 .container .logo {
@@ -62,7 +60,7 @@
     background-color: rgba(23, 23, 23, 0.9);
 }
 
-@media only screen and (max-width: 650px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
+@media only screen and (max-width: 650px)  {
     .container {
         /*display: inline-table;*/
         display: flex;
@@ -77,13 +75,23 @@
         padding: 0 10px;
     }
 }
-
 .btn-login{
     position:absolute;
     right:0;
     top: auto;
     margin-right:50px;
 }
+
+@media only screen and (max-width: 1000px) {
+    .logo{
+        width:180px;
+    }
+    .btn-login{
+        margin-right: 0;
+
+    }
+}
+
 
 
 
