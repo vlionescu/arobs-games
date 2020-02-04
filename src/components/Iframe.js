@@ -30,7 +30,7 @@ export default class Iframe extends Component {
     const id = await this.props.match.params.id;
     const game = await Requests.get("/games/" + id);
 
-    if (!game.ok) {
+    if (!localStorage.getItem("token")) {
       this.setState({ error: game.error });
       setTimeout(() => this.props.history.push("/login"), 3000);
     }
