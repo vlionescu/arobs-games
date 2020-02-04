@@ -31,9 +31,8 @@ export default class Iframe extends Component {
     const game = await Requests.get("/games/" + id);
     if (!game.ok) {
       this.setState({ error: game.error });
-      setTimeout(() => this.props.history.push("/login"), 3000);
-    }
-    if (game.name) {
+      // setTimeout(() => this.props.history.push("/login"), 3000);
+    } else {
       this.setState({
         name: game.name,
         username: localStorage.getItem("username")
@@ -68,7 +67,13 @@ export default class Iframe extends Component {
         ) : null}
       </div>
     );
-    const gameError = <div>{this.state.error}</div>;
+    const gameError = (
+      <div className="errorMessage">
+        <div>{this.state.error}</div>
+        <div>Please log in!</div>
+      </div>
+    );
+
     return <div>{!this.state.error ? gameAuth : gameError}</div>;
   }
 }
