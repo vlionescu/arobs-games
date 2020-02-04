@@ -17,6 +17,7 @@
     left: 31%;
     top: 10%;
     font-family: 'Bubblegum Sans', cursive;
+    overflow: visible;
 }
 
 /*a div that contains the close button and the victory*/
@@ -32,6 +33,7 @@
     margin: 0 auto;
     position: relative;
     top: -30px;
+    overflow: visible;
 }
 
 #close_btn {

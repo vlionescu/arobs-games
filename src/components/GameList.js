@@ -1,21 +1,8 @@
 import React from "react";
 import Requests from "./Requests";
 import ReactImageFallback from "react-image-fallback";
+import { getNpiecesOfWord, _apiHost } from "./utils";
 import "../styles/gamelist.css";
-
-const getNpiecesOfWord = (str, pieces) => {
-  let overview = "";
-  if (str) {
-    overview = str
-      .split(/\s+/)
-      .slice(0, pieces)
-      .join(" ");
-    if (str.length > overview.length) {
-      overview += " ...";
-    }
-  }
-  return overview;
-};
 
 class GameList extends React.Component {
   constructor(props) {
@@ -29,13 +16,14 @@ class GameList extends React.Component {
     this.setState({ games: await Requests.get("/games") });
   }
 
-  onClickHandle = async id => {
-    await this.props.history.push("/games/" + id);
+  onClickHandle = id => {
+    this.props.history.push("/games/" + id);
   };
 
   gamesInGrid = () => {
     const list = this.state.games.map(game => {
-      let imgsrc = "https://arobs-games-server.herokuapp.com/" + game.imageUrl;
+
+      let imgsrc = _apiHost + "/" + game.imageUrl;
 
       return (
         <div

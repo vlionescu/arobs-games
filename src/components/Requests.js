@@ -1,13 +1,11 @@
-// Fetch.js
-const _apiHost = "https://arobs-games-server.herokuapp.com/";
+
+import { _apiHost } from "./utils";
+
 
 async function request(url, params, method = "GET") {
   const options = {
     method,
-    headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json"
-    }
+    headers: setHeaders()
   };
 
   if (params) {
@@ -19,15 +17,36 @@ async function request(url, params, method = "GET") {
   }
 
   const response = await fetch(_apiHost + url, options);
+  let result = {};
 
   if (response.status !== 200) {
-    const result = await response.json();
-    return generateErrorResponse(response.ok, response.status, result.error);
+    try {
+      result = await response.json();
+      return generateErrorResponse(response.ok, response.status, result.error);
+    } catch (error) {
+      return generateErrorResponse(false, response.status, "");
+    }
   }
 
-  const result = await response.json();
+  try {
+    result = await response.json();
+    return result;
+  } catch (error) {
+    return generateErrorResponse(false, response.status, "");
+  }
+}
 
-  return result;
+function setHeaders() {
+  return localStorage.getItem("token")
+    ? {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        "x-access-token": localStorage.getItem("token")
+      }
+    : {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      };
 }
 
 function objectToQueryString(obj) {
