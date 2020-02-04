@@ -8,7 +8,7 @@ class Scores extends React.Component {
     super(props);
     this.state = {
       games: [],
-      selectedvalue: ""
+      selectedValue: ""
     };
   }
 
@@ -17,16 +17,19 @@ class Scores extends React.Component {
   }
 
   onChangeHandle = id => {
-    this.setState({ selectedvalue: id });
+    this.setState({ selectedValue: id });
     this.props.history.push("/scores/" + id);
   };
 
   getScoresInList = () => {
     const list = this.state.games.map((game, index) => {
       return (
-        <option key={index} value={game.id}>
+        <option key={index} value={game.id}
+        >
           {game.name}
         </option>
+
+
       );
     });
 
@@ -37,9 +40,10 @@ class Scores extends React.Component {
     return (
       <select
         className="select-css"
-        value={this.state.selectedvalue}
+        value={this.state.selectedValue}
         onChange={e => this.onChangeHandle(e.target.value)}
-      >
+       >
+        <option value=''>Score</option>
         >{this.getScoresInList()}
       </select>
     );
