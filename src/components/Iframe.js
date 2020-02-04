@@ -29,12 +29,10 @@ export default class Iframe extends Component {
   async componentDidMount() {
     const id = await this.props.match.params.id;
     const game = await Requests.get("/games/" + id);
-
     if (!game.ok) {
       this.setState({ error: game.error });
       setTimeout(() => this.props.history.push("/login"), 3000);
     }
-    console.log(game);
     if (game.name) {
       this.setState({
         name: game.name,
