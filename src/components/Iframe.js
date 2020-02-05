@@ -17,7 +17,8 @@ export default class Iframe extends Component {
       showPopup: false,
       score: null,
       username: "",
-      error: null
+      error: null,
+      gameId: null
     };
   }
   togglePopup = () => {
@@ -35,7 +36,8 @@ export default class Iframe extends Component {
     } else {
       this.setState({
         name: game.name,
-        username: localStorage.getItem("username")
+        username: localStorage.getItem("username"),
+        gameId: id
       });
     }
   }
@@ -53,7 +55,7 @@ export default class Iframe extends Component {
               title={this.state.name}
               src={host + this.state.name + index}
               sandbox="allow-same-origin allow-scripts"
-            ></iframe>
+            />
           ) : (
             <Loader width={200} />
           )}
@@ -62,6 +64,7 @@ export default class Iframe extends Component {
           <Popup
             score={this.state.score}
             username={this.state.username}
+            gameId ={ this.state.gameId}
             closePopup={this.togglePopup}
           />
         ) : null}

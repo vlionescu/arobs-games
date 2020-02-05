@@ -1,11 +1,30 @@
 import React, { Component } from "react";
 import "../styles/variables.css";
 import "../styles/popup.css";
+import Requests from "./Requests";
 
 class Popup extends Component {
-  handleClick() {
-    //todo send to server the submit information
-  }
+    constructor(props) {
+        super(props);
+    }
+
+handleClick= async() => {
+      const response = await Requests.get("/userid");
+      if(response.ok){
+          const userId = response.id;
+          const gameId = parseInt(this.props.gameId,10);
+          const responsePost = await Requests.create("/scores", { userId: userId, gameId: gameId, points: this.props.score });
+          if(responsePost.ok){
+              this.props.closePopup();
+          }
+         else{
+                alert("Something went wrong");
+          }
+
+
+
+      }
+  };
 
   render() {
     return (
