@@ -31,14 +31,13 @@ class Scores extends React.Component {
   };
 
   getScoresInList = () => {
-    const list = this.state.games.map((game, index) => {
+    return this.state.games.map((game, index) => {
       return (
         <option key={index} value={game.id}>
           {game.name}
         </option>
       );
     });
-    return list;
   };
 
   render() {
