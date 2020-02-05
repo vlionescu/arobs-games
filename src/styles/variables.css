@@ -8,6 +8,7 @@
     /*TEXT COLORS*/
     --color-white: #ffff;
     --color-black: #000;
+    --color-black-rgba: 0, 0, 0;
     --color-grey-light: #999;
     --color-grey-dark: #777777;
     --color-grey-dark-2: #333;
