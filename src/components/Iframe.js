@@ -43,6 +43,7 @@ export default class Iframe extends Component {
         }
     }
 
+
     render() {
         const host = _apiHost + "/games/";
         const index = "/index.html";

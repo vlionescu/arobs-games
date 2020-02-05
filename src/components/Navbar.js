@@ -5,38 +5,46 @@ import Scores from "./Scores.js";
 import "../styles/header.css";
 
 const defaultLinks = (
-  <ul id="nav-lists">
-    <li>
-      <Link to="/games">Games</Link>
+  <ul className="ul-nav-list">
+    <li className="li-nav-list">
+      <Link className="nav-bar-link" to="/games">
+        Games
+      </Link>
     </li>
-    <li className="btn-login">
-      <Link to="/login">Login</Link>
+    <li className="li-nav-list btn-login">
+      <Link className="nav-bar-link" to="/login">
+        Login
+      </Link>
     </li>
   </ul>
 );
 
 const Navbar = props => {
   const linksForAuthenticatedUser = (
-    <ul id="nav-lists">
-      <li>
-        <Link to="/games">Games</Link>
+    <ul className="ul-nav-list">
+      <li className="li-nav-list">
+        <Link className="nav-bar-link" to="/games">
+          Games
+        </Link>
       </li>
-      <li>
+      <li className="li-nav-list">
         <Scores />
       </li>
-      <li className="btn-login">
-        <a
-          href="/#"
+
+      <li>
+        <p className="p-name"> Hello, {localStorage.getItem("username")}</p>
+      </li>
+      <li className="li-nav-list btn-login">
+        <Link
+          to="/#"
+          className="nav-bar-link"
           onClick={() => {
             removeTokenFromLocalStorage();
             props.history.push("/");
           }}
         >
           Logout
-        </a>
-      </li>
-      <li>
-        <p>Hello, {localStorage.getItem("username")}</p>
+        </Link>{" "}
       </li>
     </ul>
   );
@@ -48,7 +56,7 @@ const Navbar = props => {
           <img src={require("../images/logo1.png")} alt="logo" />
         </Link>
       </div>
-      <div className="navbar">
+      <div className="nav-bar">
         {localStorage.token ? linksForAuthenticatedUser : defaultLinks}
       </div>
     </div>
