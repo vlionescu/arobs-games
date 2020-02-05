@@ -50,6 +50,7 @@ class ScoresByGameId extends React.Component {
         return (
             <div id="mainDivScore">
                 <table  className="scoreListItem scoreTable">
+                    <tbody>
                     <tr>
                         <td id={"top10"} align={"center"} colSpan="3">Top 10 Players</td>
                     </tr>
@@ -65,6 +66,7 @@ class ScoresByGameId extends React.Component {
                         </th>
                     </tr>
                     {this.getScoresInList()}
+                    </tbody>
                 </table>
             </div>
         );
