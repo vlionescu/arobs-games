@@ -35,14 +35,16 @@ class Scores extends React.Component {
 
   render() {
     return (
-      <select
-        className="select-css"
-        value={this.state.selectedValue}
-        onChange={e => this.onChangeHandle(e.target.value)}
-       >
-        <option value=''>Score</option>
-        {this.getScoresInList()}
-      </select>
+      <li className="nav-bar-link">
+        <select
+            className="select-css"
+            value={this.state.selectedValue}
+            onChange={e => this.onChangeHandle(e.target.value)}
+        >
+          <option value=''>Score</option>
+          {this.getScoresInList()}
+        </select>
+      </li>
     );
   }
 }
