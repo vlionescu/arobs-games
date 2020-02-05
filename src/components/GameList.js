@@ -3,6 +3,8 @@ import Requests from "./Requests";
 import ReactImageFallback from "react-image-fallback";
 import { getNpiecesOfWord, _apiHost } from "./utils";
 import "../styles/gamelist.css";
+import Loader from "./Spinner";
+
 
 class GameList extends React.Component {
   constructor(props) {
@@ -30,13 +32,13 @@ class GameList extends React.Component {
           onClick={() => this.onClickHandle(game.id)}
           key={game.id}
         >
+
           <div className="card-side front-side">
             <ReactImageFallback
-              className="screenshot"
-              src={imgsrc}
-              alt={game.name ? game.name : "No Title"}
-              fallbackImage={require("../images/no-image.png")}
-              initialImage="loader.gif"
+                className="screenshot"
+                src={imgsrc}
+                alt={game.name ? game.name : "No Title"}
+                fallbackImage={<Loader width={150}/>}
             />
             <p className="gamename">{game.name ? game.name : "No Title"}</p>
           </div>

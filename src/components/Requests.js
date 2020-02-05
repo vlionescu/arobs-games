@@ -34,9 +34,15 @@ async function request(url, params, method = "GET") {
 
   try {
     result = await response.json();
+    result.ok = true;
+    result.status = response.status;
     return result;
   } catch (error) {
-    return generateErrorResponse(false, response.status, "");
+    return generateErrorResponse(
+      false,
+      response.status,
+      "Something went wrong"
+    );
   }
 }
 

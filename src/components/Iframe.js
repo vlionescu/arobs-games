@@ -32,8 +32,7 @@ export default class Iframe extends Component {
     if (!game.ok) {
       this.setState({ error: game.error });
       setTimeout(() => this.props.history.push("/login"), 3000);
-    }
-    if (game.name) {
+    } else {
       this.setState({
         name: game.name,
         username: localStorage.getItem("username")
@@ -46,17 +45,15 @@ export default class Iframe extends Component {
     const index = "/index.html";
     const gameAuth = (
       <div>
-        <h1>Game</h1>
         <div className="iframe-container">
           {this.state.name ? (
             <iframe
               className="iframe"
               title={this.state.name}
               src={host + this.state.name + index}
-
             ></iframe>
           ) : (
-            <Loader />
+            <Loader width={200} />
           )}
         </div>
         {this.state.showPopup ? (
@@ -68,7 +65,13 @@ export default class Iframe extends Component {
         ) : null}
       </div>
     );
-    const gameError = <div>{this.state.error}</div>;
+    const gameError = (
+      <div className="errorMessage">
+        <div>{this.state.error}</div>
+        <div>Please log in!</div>
+      </div>
+    );
+
     return <div>{!this.state.error ? gameAuth : gameError}</div>;
   }
 }
