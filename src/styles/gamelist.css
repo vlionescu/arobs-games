@@ -15,7 +15,6 @@
   grid-gap: 3vw;
   color: white;
 }
-
 .containerGamelist h2 {
   color: white;
   font-size: 2em;
@@ -32,15 +31,15 @@
 .card-side {
   border-radius: 10px;
   border: 2px solid;
-  height: 98%;
+  height: 95%;
   transition: all 0.9s ease;
   position: absolute;
   top: 0;
   left: 0;
-  width: 98%;
+  width: 95%;
   backface-visibility: hidden;
   overflow: hidden;
-  box-shadow: 0 10px 37px 0 rgba(var(--color-black-rgba), 0.75);
+  box-shadow: 10px 15px 3px -3px rgba(var(--color-black-rgba), 0.4);
 }
 .front-side {
   display: flex;
@@ -61,29 +60,33 @@
 .gamecomponent:hover .back-side {
   transform: rotateY(0deg);
 }
-
 .btn-play {
-  margin-top: 60px;
+  margin-top: 45px;
 }
-
 .description {
   display: flex;
   flex-direction: column;
+  padding: 30px 20px;
+}
+.descriptionfield{
+  text-align: center;
 }
 .gamename {
   text-align: center;
   font-size: 1.5em;
-  margin-top: 15px;
+  margin-top: 30px;
   margin-bottom: 5px;
   padding-bottom: 8px;
   border-bottom: 1px solid aliceblue;
   font-family: var(--h3-primary-font);
+  text-transform: capitalize;
 }
 .screenshot {
   width: 100%;
   max-width: 200px;
   height: 150px;
   cursor: pointer;
+  padding-top: 20px;
 }
 @media screen and (max-width: 1200px) {
   .gameList {
@@ -105,4 +108,3 @@
     grid-template-columns: 1fr;
   }
 }
-
