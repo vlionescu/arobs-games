@@ -5,6 +5,7 @@ import { getNpiecesOfWord, _apiHost } from "./utils";
 import "../styles/gamelist.css";
 import Loader from "./Spinner";
 
+
 class GameList extends React.Component {
   constructor(props) {
     super(props);
@@ -23,7 +24,6 @@ class GameList extends React.Component {
 
   gamesInGrid = () => {
     const list = this.state.games.map(game => {
-
       let imgsrc = _apiHost + "/" + game.imageUrl;
 
       return (
@@ -32,19 +32,25 @@ class GameList extends React.Component {
           onClick={() => this.onClickHandle(game.id)}
           key={game.id}
         >
-          <ReactImageFallback
-            className="screenshot"
-            src={imgsrc}
-            alt={game.name ? game.name : "No Title"}
-            fallbackImage={<Loader width={150}/>}
-          />
-          <div className="description">
+
+          <div className="card-side front-side">
+            <ReactImageFallback
+                className="screenshot"
+                src={imgsrc}
+                alt={game.name ? game.name : "No Title"}
+                fallbackImage={<Loader width={150}/>}
+            />
             <p className="gamename">{game.name ? game.name : "No Title"}</p>
-            <p className="descriptionfield">
-              {game.description
-                ? getNpiecesOfWord(game.description, 40)
-                : "No Description"}
-            </p>
+          </div>
+          <div className="card-side back-side">
+            <div className="description">
+              <p className="descriptionfield">
+                {game.description
+                  ? getNpiecesOfWord(game.description, 40)
+                  : "No Description"}
+              </p>
+            </div>
+            <button className="btn-play">PLAY</button>
           </div>
         </div>
       );

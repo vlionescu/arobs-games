@@ -45,14 +45,12 @@ export default class Iframe extends Component {
     const index = "/index.html";
     const gameAuth = (
       <div>
-        <h1>Game</h1>
         <div className="iframe-container">
           {this.state.name ? (
             <iframe
               className="iframe"
               title={this.state.name}
               src={host + this.state.name + index}
-              sandbox="allow-same-origin allow-scripts"
             ></iframe>
           ) : (
             <Loader width={200} />
