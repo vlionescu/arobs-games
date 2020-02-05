@@ -1,6 +1,3 @@
-* {
-  overflow: hidden; /* Hide scrollbars */
-}
 .container {
   height: 75px;
   box-shadow: 0 10px 37px 0 rgba(var(--color-black-rgba), 0.75);
@@ -12,6 +9,7 @@
     var(--color-primary-dark),
     var(--color-secondary-dark)
   );
+  overflow: hidden; /* Hide scrollbars */
 }
 .container .logo {
   max-width: 250px;
