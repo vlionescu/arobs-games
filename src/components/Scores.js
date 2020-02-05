@@ -16,21 +16,28 @@ class Scores extends React.Component {
     this.setState({ games: await Requests.get("/games") });
   }
 
+  componentDidUpdate(prevProps) {
+    const { pathname } = this.props.location;
+    const { pathname: prevPathname } = prevProps.location;
+
+    if (prevPathname.includes("/scores") && pathname === "/games") {
+      this.setState({ selectedValue: "" });
+    }
+  }
+
   onChangeHandle = id => {
     this.setState({ selectedValue: id });
     this.props.history.push("/scores/" + id);
   };
 
   getScoresInList = () => {
-    const list = this.state.games.map((game, index) => {
+    return this.state.games.map((game, index) => {
       return (
-        <option key={index} value={game.id}
-        >
+        <option key={index} value={game.id}>
           {game.name}
         </option>
       );
     });
-    return list;
   };
 
   render() {
@@ -39,8 +46,10 @@ class Scores extends React.Component {
         className="select-css"
         value={this.state.selectedValue}
         onChange={e => this.onChangeHandle(e.target.value)}
-       >
-        <option value=''>Score</option>
+      >
+        <option value="" disabled>
+          Score
+        </option>
         {this.getScoresInList()}
       </select>
     );
