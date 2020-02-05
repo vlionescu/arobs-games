@@ -7,38 +7,45 @@ import "../styles/header.css";
 const defaultLinks = (
   <ul className="ul-nav-list">
     <li className="li-nav-list">
-      <Link className="navbar-link" to="/games">Games</Link>
+      <Link className="nav-bar-link" to="/games">
+        Games
+      </Link>
     </li>
     <li className="li-nav-list btn-login">
-      <Link className="navbar-link" to="/login">Login</Link>
+      <Link className="nav-bar-link" to="/login">
+        Login
+      </Link>
     </li>
   </ul>
 );
 
 const Navbar = props => {
   const linksForAuthenticatedUser = (
-    <ul className="ul-nav-list" >
+    <ul className="ul-nav-list">
       <li className="li-nav-list">
-        <Link className="navbar-link" to="/games">Games</Link>
+        <Link className="nav-bar-link" to="/games">
+          Games
+        </Link>
       </li>
       <li className="li-nav-list">
         <Scores />
       </li>
 
-      <li >
-        <p className="p-name" > Hello, {localStorage.getItem("username")}</p>
+      <li>
+        <p className="p-name"> Hello, {localStorage.getItem("username")}</p>
       </li>
-        <li className="li-nav-list btn-login">
-            <Link to = "/#"
-                  className="navbar-link"
-                  onClick={() => {
-                      removeTokenFromLocalStorage();
-                      props.history.push("/");
-                  }}
-            >
-                Logout
-            </Link>        </li>
-
+      <li className="li-nav-list btn-login">
+        <Link
+          to="/#"
+          className="nav-bar-link"
+          onClick={() => {
+            removeTokenFromLocalStorage();
+            props.history.push("/");
+          }}
+        >
+          Logout
+        </Link>{" "}
+      </li>
     </ul>
   );
 
@@ -49,7 +56,7 @@ const Navbar = props => {
           <img src={require("../images/logo1.png")} alt="logo" />
         </Link>
       </div>
-      <div className="navbar">
+      <div className="nav-bar">
         {localStorage.token ? linksForAuthenticatedUser : defaultLinks}
       </div>
     </div>
