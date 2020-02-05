@@ -55,7 +55,7 @@ export default class Iframe extends Component {
               sandbox="allow-same-origin allow-scripts"
             ></iframe>
           ) : (
-            <Loader />
+            <Loader width={200} />
           )}
         </div>
         {this.state.showPopup ? (
