@@ -1,6 +1,7 @@
 .iframe-container {
   position: relative;
   overflow: hidden;
+  margin: 2em;
   padding-top: 56.25%;
 }
 
@@ -25,5 +26,5 @@
 }
 
 .errorMessage div {
-  margin-bottom:1em;
+  margin-bottom: 1em;
 }

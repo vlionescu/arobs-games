@@ -7,11 +7,11 @@ import Loader from "./Spinner";
 
 export default class Iframe extends Component {
     constructor(props) {
+        super(props);
         window.setScore = score => {
             this.state.score = score;
             this.togglePopup();
         };
-        super(props);
         this.state = {
             name: "",
             showPopup: false,
