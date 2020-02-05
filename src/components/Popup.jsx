@@ -20,9 +20,6 @@ handleClick= async() => {
          else{
                 alert("Something went wrong");
           }
-
-
-
       }
   };
 
