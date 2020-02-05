@@ -4,7 +4,7 @@ import "../styles/spinner.css";
 
 function Loader(props){
         return (
-            <img src={require("../images/arobs_logo.png")} alt={"spinner"}  className="loader"/>
+            <img src={require("../images/arobs_logo.png")} alt={"spinner"} width={props.width} className="loader"/>
         );
 }
 

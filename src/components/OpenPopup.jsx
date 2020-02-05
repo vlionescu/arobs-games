@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import "../styles/variables.css";
 import "../styles/popup.css";
 import Popup from "./Popup";
-// import Iframe from "./Iframe";
-// import Requests from "./Requests";
 
 //this class is used to open the popup activity
 //It contains the functions necessary for opening and closing the popup
