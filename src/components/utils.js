@@ -1,7 +1,7 @@
 import Requests from "./Requests";
 
-export const _apiHost = "https://arobs-games-server.herokuapp.com";
-// export const _apiHost = "http://localhost:8080";
+// export const _apiHost = "https://arobs-games-server.herokuapp.com";
+export const _apiHost = "http://localhost:8080";
 
 export const getNpiecesOfWord = (str, pieces) => {
   let overview = "";

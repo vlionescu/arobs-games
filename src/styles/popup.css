@@ -14,8 +14,9 @@
     flex-direction: column;
     z-index: 9;
     position: fixed;
-    left: 31%;
-    top: 10%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     font-family: 'Bubblegum Sans', cursive;
     overflow: visible;
 }
@@ -106,14 +107,12 @@
     }
     .popup_div {
         width: 46%;
-        left: 25%;
     }
 }
 
 @media screen and (max-width: 690px) {
     .popup_div {
         width: 60%;
-        left: 20%;
     }
     #victory_txt {
         width: 176px;
