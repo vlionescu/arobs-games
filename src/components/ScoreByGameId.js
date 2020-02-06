@@ -44,8 +44,6 @@ class ScoresByGameId extends React.Component {
     });
   };
 
-        return list;
-    };
 
     render() {
         return (
