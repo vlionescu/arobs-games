@@ -41,7 +41,7 @@ class Scores extends React.Component {
             value={this.state.selectedValue}
             onChange={e => this.onChangeHandle(e.target.value)}
         >
-          <option value=''>Score</option>
+          <option value='' disabled>Score</option>
           {this.getScoresInList()}
         </select>
       </li>
