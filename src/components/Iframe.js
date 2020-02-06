@@ -43,13 +43,11 @@ export default class Iframe extends Component {
         }
     }
 
-
     render() {
         const host = _apiHost + "/games/";
         const index = "/index.html";
         const gameAuth = (
             <div>
-                <h1>Game</h1>
                 <div className="iframe-container">
                     {this.state.name ? (
                         <iframe
