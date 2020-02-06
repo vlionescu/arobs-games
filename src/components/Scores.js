@@ -42,7 +42,6 @@ class Scores extends React.Component {
 
   render() {
     return (
-      <li className="nav-bar-link">
         <select
             className="select-css"
             value={this.state.selectedValue}
@@ -51,7 +50,6 @@ class Scores extends React.Component {
           <option value='' disabled>Score</option>
           {this.getScoresInList()}
         </select>
-      </li>
     );
   }
 }
