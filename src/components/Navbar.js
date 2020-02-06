@@ -60,9 +60,9 @@ const Navbar = props => {
   return (
     <div className="container">
       <div className="logo">
-        <Link to="/">
+        <a href="https://www.arobs.com/">
           <img src={require("../images/logo1.png")} alt="logo" />
-        </Link>
+        </a>
       </div>
       <div className="nav-bar">
         {localStorage.token ? linksForAuthenticatedUser : defaultLinks}
