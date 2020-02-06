@@ -1,51 +1,64 @@
 .select-css {
-    display: block;
-    font-family: sans-serif;
-    color: #444;
-    line-height: 1.3;
-    padding: .6em 1.4em .5em .8em;
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
-    margin: 0;
-    box-shadow: 0 1px 0 1px rgba(0, 0, 0, .04);
-    border-radius: .5em;
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    appearance: none;
-    background-color: transparent;
-    background-repeat: no-repeat, repeat;
-    background-position: right .7em top 50%, 0 0;
-    background-size: .65em auto, 100%;
+  display: inline-block;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: transparent;
+  text-transform: capitalize;
+  border-color: transparent;
+  font-family: var(--h3-primary-font);
+  color: white;
+  height: 1.6em;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+.box::before {
+  content: "\21E9";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 25%;
+  height: 100%;
+  text-align: center;
+  font-size: 1.6em;
+  line-height: 65px;
+  color: rgba(255, 255, 255, 0.5);
+  pointer-events: none;
+  visibility: hidden;
+}
+.box:hover::before {
+  color: rgba(255, 255, 255, 0.6);
+  visibility: visible;
+}
+.box select option {
+  padding: 30px;
+}
 
-    border-color: transparent;
-    font-family: var(--h3-primary-font);
-    text-decoration: none;
-    color: white;
-    font-size: 25px;
-    display: inline-block;
-    line-height: 60px;
-    cursor: pointer;
-    padding: 0 20px;
-    text-align-last:center;
+select {
+  text-align-last: center;
+  text-align: center;
+  -ms-text-align-last: center;
+  -moz-text-align-last: center;
+}
+
+select option {
+  text-align: center;
+  background-color: var(--color-grey-dark-2);
+  margin: 10px 10px;
 }
 
 .select-css::-ms-expand {
-    display: none;
+  display: none;
 }
 
 .select-css:hover {
-    border-color: #888;
+  background-color: rgba(23, 23, 23, 0.9);
 }
 
 .select-css:focus {
-    border-color: #aaa;
-    box-shadow: 0 0 1px 3px rgba(59, 153, 252, .7);
-    box-shadow: 0 0 0 3px -moz-mac-focusring;
-    color: #222;
-    outline: none;
+  color: var(--color-white);
+  outline: none;
 }
 
 .select-css option {
-    font-weight: normal;
+  font-weight: normal;
 }
