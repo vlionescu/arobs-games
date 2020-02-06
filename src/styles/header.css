@@ -5,9 +5,9 @@
   flex-wrap: wrap;
   align-items: center;
   background-image: linear-gradient(
-    to right,
-    var(--color-primary-dark),
-    var(--color-secondary-dark)
+          to right,
+          var(--color-primary-dark),
+          var(--color-secondary-dark)
   );
   overflow: hidden; /* Hide scrollbars */
 }
@@ -69,8 +69,7 @@
   display: inline-block;
   width: 150px;
   font-family: var(--h3-primary-font);
-  font-size: 1.6em;
-  display: block;
+
   color: var(--color-white);
 }
 @media only screen and (max-width: 1100px) {
@@ -86,9 +85,6 @@
   .li-nav-list {
     width: 150px;
   }
-  .p-name {
-    font-size: 1.4em;
-  }
 }
 @media only screen and (max-width: 780px) {
   .logo {
@@ -102,8 +98,5 @@
   }
   .li-nav-list {
     width: 100px;
-  }
-  .p-name {
-    font-size: 1.3em;
   }
 }

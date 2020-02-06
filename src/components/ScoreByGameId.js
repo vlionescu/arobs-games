@@ -44,27 +44,32 @@ class ScoresByGameId extends React.Component {
     });
   };
 
-  render() {
-    return (
-      <div id="mainDivScore">
-        <table className="scoreListItem scoreTable">
-          <thead>
-            <tr>
-              <td id={"top10"} align={"center"} colSpan="3">
-                Top 10 Players
-              </td>
-            </tr>
-            <tr className={"users"}>
-              <th className={"users"}>Rank</th>
-              <th className={"users"}>Username</th>
-              <th className={"users"}>Score</th>
-            </tr>
-          </thead>
-          <tbody>{this.getScoresInList()}</tbody>
-        </table>
-      </div>
-    );
-  }
+
+    render() {
+        return (
+            <div id="mainDivScore">
+                <table  className="scoreListItem scoreTable">
+                    <tbody>
+                    <tr>
+                        <td id={"top10"} align={"center"} colSpan="3">Top 10 Players</td>
+                    </tr>
+                    <tr id={"users"}>
+                        <th id={"users"}>
+                            Rank
+                        </th>
+                        <th id={"users"}>
+                            Username
+                        </th>
+                        <th id={"users"}>
+                            Score
+                        </th>
+                    </tr>
+                    {this.getScoresInList()}
+                    </tbody>
+                </table>
+            </div>
+        );
+    }
 }
 
 export default ScoresByGameId;
