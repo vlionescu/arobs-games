@@ -29,8 +29,6 @@ class GameList extends React.Component {
       return (
         <div
           className="gamecomponent"
-          onClick={() => this.onClickHandle(game.id)}
-          key={game.id}
         >
 
           <div className="card-side front-side">
@@ -50,7 +48,8 @@ class GameList extends React.Component {
                   : "No Description"}
               </p>
             </div>
-            <button className="btn-play">PLAY</button>
+            <button className="btn-play" onClick={() => this.onClickHandle(game.id)}
+                    key={game.id}>PLAY</button>
           </div>
         </div>
       );

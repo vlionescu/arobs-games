@@ -54,7 +54,7 @@ export default class Iframe extends Component {
                             className="iframe"
                             title={this.state.name}
                             src={host + this.state.name + index}
-                            sandbox="allow-same-origin allow-scripts"
+                            sandbox="allow-same-origin allow-scripts allow-modals"
                         />
                     ) : (
                         <Loader width={200}/>

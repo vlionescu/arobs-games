@@ -2,12 +2,11 @@
   height: 75px;
   box-shadow: 0 10px 37px 0 rgba(var(--color-black-rgba), 0.75);
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
   background-image: linear-gradient(
-          to right,
-          var(--color-primary-dark),
-          var(--color-secondary-dark)
+    to right,
+    var(--color-primary-dark),
+    var(--color-secondary-dark)
   );
   overflow: hidden; /* Hide scrollbars */
 }
@@ -24,42 +23,35 @@
   max-width: 100%;
   max-height: 60px;
 }
-.container .navbar {
+.container .nav-bar {
   display: flex;
   flex: 1;
-  padding: 0 10px;
-  width: 100%;
+  justify-content: space-between;
 }
 .ul-nav-list {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+
+}
+.ul-nav-list-2{
+  display: flex;
 }
 .li-nav-list {
+  position: relative;
   width: 200px;
 }
 .li-nav-list a:hover {
   color: #ffffff;
   background-color: rgba(23, 23, 23, 0.9);
 }
-.btn-login {
-  position: absolute;
-  right: 0;
-  top: auto;
-  margin-right: 50px;
-}
-.btn-logout {
-  position: absolute;
-  right: 0;
-  top: auto;
-  margin-right: 50px;
-}
+
 .nav-bar-link {
   font-family: var(--h3-primary-font);
   text-decoration: none;
   color: var(--color-white);
   font-size: 1.6em;
   display: block;
-  height: 65px;
+  height: 60px;
   line-height: 60px;
   cursor: pointer;
   text-align: center;
@@ -69,34 +61,61 @@
   display: inline-block;
   width: 150px;
   font-family: var(--h3-primary-font);
-
   color: var(--color-white);
 }
+
 @media only screen and (max-width: 1100px) {
   .logo {
     width: 150px;
   }
-  .btn-login {
-    margin-right: 15px;
-  }
+
   .nav-bar-link {
     font-size: 1.4em;
   }
   .li-nav-list {
     width: 150px;
   }
+  .select-css {
+    font-size: 1.4em;
+  }
+  .box::before{
+    font-size: 1.4em;
+    line-height: 62px;
+  }
 }
 @media only screen and (max-width: 780px) {
   .logo {
     width: 120px;
-  }
-  .btn-login {
-    margin-right: 0;
   }
   .nav-bar-link {
     font-size: 1.3em;
   }
   .li-nav-list {
     width: 100px;
+  }
+  .select-css {
+    font-size: 1.3em;
+  }
+  .box::before{
+    font-size: 1.3em;
+    line-height: 60px;
+  }
+}
+@media only screen and (max-width: 590px) {
+  .logo {
+    width: 100px;
+  }
+  .nav-bar-link {
+    font-size: 1em;
+  }
+  .li-nav-list {
+    width: 80px;
+  }
+  .select-css {
+    font-size: 1em;
+  }
+  .box::before{
+    font-size: 1em;
+    line-height: 60px;
   }
 }
