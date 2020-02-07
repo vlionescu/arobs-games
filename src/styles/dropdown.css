@@ -1,0 +1,64 @@
+.select-css {
+  display: inline-block;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: transparent;
+  text-transform: capitalize;
+  border-color: transparent;
+  font-family: var(--h3-primary-font);
+  color: white;
+  height: 1.6em;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+.box::before {
+  content: "\21E9";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 25%;
+  height: 100%;
+  text-align: center;
+  font-size: 1.6em;
+  line-height: 65px;
+  color: rgba(255, 255, 255, 0.5);
+  pointer-events: none;
+  visibility: hidden;
+}
+.box:hover::before {
+  color: rgba(255, 255, 255, 0.6);
+  visibility: visible;
+}
+.box select option {
+  padding: 30px;
+}
+
+select {
+  text-align-last: center;
+  text-align: center;
+  -ms-text-align-last: center;
+  -moz-text-align-last: center;
+}
+
+select option {
+  text-align: center;
+  background-color: var(--color-grey-dark-2);
+  margin: 10px 10px;
+}
+
+.select-css::-ms-expand {
+  display: none;
+}
+
+.select-css:hover {
+  background-color: rgba(23, 23, 23, 0.9);
+}
+
+.select-css:focus {
+  color: var(--color-white);
+  outline: none;
+}
+
+.select-css option {
+  font-weight: normal;
+}

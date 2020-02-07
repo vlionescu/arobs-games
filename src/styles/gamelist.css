@@ -1,0 +1,110 @@
+.containerGamelist {
+  margin-right: auto;
+  margin-left: auto;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* LANDING PAGE */
+.gameList {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 3vw;
+  color: white;
+}
+.containerGamelist h2 {
+  color: white;
+  font-size: 2em;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  font-family: var(--h1-primary-font);
+}
+.gamecomponent {
+  padding: 15px;
+  height: 300px;
+  width: 200px;
+  position: relative;
+}
+.card-side {
+  border-radius: 10px;
+  border: 2px solid;
+  height: 95%;
+  transition: all 0.9s ease;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 95%;
+  backface-visibility: hidden;
+  overflow: hidden;
+  box-shadow: 10px 15px 3px -3px rgba(var(--color-black-rgba), 0.4);
+}
+.front-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.back-side {
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.gamecomponent:hover .front-side {
+  transform: rotateY(-180deg);
+}
+.gamecomponent:hover .back-side {
+  transform: rotateY(0deg);
+}
+.btn-play {
+  margin-top: 45px;
+}
+.description {
+  display: flex;
+  flex-direction: column;
+  padding: 30px 20px;
+}
+.descriptionfield{
+  text-align: center;
+}
+.gamename {
+  text-align: center;
+  font-size: 1.5em;
+  margin-top: 30px;
+  margin-bottom: 5px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid aliceblue;
+  font-family: var(--h3-primary-font);
+  text-transform: capitalize;
+}
+.screenshot {
+  width: 100%;
+  max-width: 200px;
+  height: 150px;
+  cursor: pointer;
+  padding-top: 20px;
+}
+@media screen and (max-width: 1200px) {
+  .gameList {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+@media screen and (max-width: 850px) {
+  .gameList {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media screen and (max-width: 600px) {
+  header h1 {
+    font-size: 3em;
+  }
+}
+@media screen and (max-width: 550px) {
+  .gameList {
+    grid-template-columns: 1fr;
+  }
+}
